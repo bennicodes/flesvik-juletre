@@ -1,0 +1,13 @@
+.button {
+  background-color: var(--secondary-color);
+  color: var(--secondary-text-color);
+  border: 1px solid var(--secondary-color);
+  border-radius: var(--border-radius-medium);
+  font-size: var(--medium-font);
+}
+.button:hover {
+  background-color: var(--background-color);
+  color: var(--secondary-color);
+  box-shadow: 0 0 8px var(--secondary-color);
+  transition: 0.2s ease;
+}
