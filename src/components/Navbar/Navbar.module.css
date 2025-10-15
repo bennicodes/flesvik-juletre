@@ -3,10 +3,18 @@
   width: 100%;
   display: flex;
   align-items: center;
-  padding: var(--spacing-small);
-  font-family: var(--navbar-link-font);
+  padding: var(--spacing-medium) var(--spacing-small);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  font-family: var(--main-font);
   position: relative;
 }
+/* Scroll effect */
+.navbarContainer.scrolled {
+  background-color: rgba(252, 252, 252, 0.95);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
 .navbar {
   width: 100%;
   max-height: 100%;
@@ -16,7 +24,7 @@
   position: sticky;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 100;
 }
 /* Logo */
 .logoContainer {
@@ -27,7 +35,7 @@
 }
 
 .logoLink {
-  color: var(--secondary-text-color);
+  color: var(--accent-gold);
   height: 100%;
   display: flex;
   align-items: center;
@@ -53,13 +61,13 @@
   padding-right: var(--spacing-large);
 }
 .navLinks a {
-  color: var(--secondary-text-color);
+  color: var(--text-color);
   font-size: var(--medium-font);
   text-decoration: none;
 }
 .navLinks a:hover {
   color: var(--accent-gold);
-  transition: 0.2s ease;
+  border-bottom: 1px solid var(--accent-gold);
 }
 
 .navLinks a.active {
@@ -67,32 +75,7 @@
   border-bottom: 1px solid var(--accent-gold);
 }
 .navLinks a.active:hover {
-  color: var(--secondary-text-color);
-  border-bottom: 1px solid var(--secondary-text-color);
-}
-
-.contactLink {
-  min-height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--border-radius-large);
-  padding: var(--spacing-small);
-  background: linear-gradient(
-    270deg,
-    var(--secondary-color),
-    var(--secondary-text-color),
-    var(--secondary-color)
-  );
-  background-size: 400% 400%;
-  animation: var(--glide-animation) 8s ease infinite;
-}
-
-.navLinks .contactLink:hover {
-  background: var(--secondary-color);
-  color: var(--secondary-text-color);
-  box-shadow: 0 0 8px var(--secondary-color);
-  transition: 0.2s ease;
+  color: var(--accent-gold);
 }
 
 /* Menu */
@@ -103,17 +86,17 @@
   justify-content: center;
   border: none;
   padding: var(--spacing-small);
+  border: 1px solid var(--accent-gold);
   z-index: 10;
   transition: 0.2s ease;
 }
 .menuButton:hover {
-  background-color: var(--header-button-color);
-  color: var(--secondary-text-color);
+  color: var(--text-color);
   transition: 0.2s ease;
-  box-shadow: 0 0 8px var(--accent-gold);
 }
 
 .menuIcon {
+  color: var(--accent-gold);
   width: 16px;
   height: auto;
   z-index: 10;
@@ -158,20 +141,9 @@
     padding: var(--spacing-small) var(--spacing-large);
     font-size: var(--base-font);
   }
-  .navLinks a:hover {
-    background-color: var(--secondary-background-color);
+  .navbar .navLinks a:hover {
+    background-color: var(--accent-gold);
     color: var(--secondary-text-color);
-  }
-  .navLinks .contactLink {
-    width: 100%;
-    background: var(--secondary-color);
-    text-align: center;
-    margin: 0 var(--spacing-medium);
-    margin-top: var(--spacing-large);
-  }
-  .navLinks .contactLink:hover {
-    background-color: var(--background-color);
-    color: var(--secondary-color);
   }
 
   .navLinksActive {

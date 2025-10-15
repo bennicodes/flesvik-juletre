@@ -25,9 +25,9 @@ button {
   --secondary-text-color: #f9fafb; /* light text for contrast */
   --background-color: #fef6ee; /* warm cream background */
   --secondary-background-color: #047857; /* Christmas tree green */
-  --navbar-background: #065f30; /* darker green for navbar */
+  --navbar-background: #fcfcfc; /* darker green for navbar */
   --primary-color: #7c3aed; /* purple accent for buttons/links */
-  --accent-gold: #d4af37; /* gold for links or highlights */
+  --accent-gold: #a28010; /* gold for links or highlights */
 
   /* Buttons */
   --secondary-color: #dc2626; /* Christmas red for buttons/accent */
@@ -41,8 +41,7 @@ button {
   --spacing-xl: 4rem;
 
   /* Font */
-  --primary-font: "Inter-Regular", sans-serif;
-  --navbar-link-font: "PlayfairDisplay", sans-serif;
+  --main-font: "PlayfairDisplay", sans-serif;
   --logo-font: "GreatVibes-Regular", sans-serif;
   --small-font: 0.75rem;
   --base-font: 1rem;
