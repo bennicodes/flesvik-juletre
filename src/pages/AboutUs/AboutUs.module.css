@@ -1,0 +1,112 @@
+/* AboutUs.module.css */
+
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px 25px;
+  background-color: #ffffff; /* Hvit bakgrunn */
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  font-family: "Georgia", serif;
+  color: #3b2f2f;
+  border: 1px solid #ddd;
+  text-align: center; /* Sentrerer overskrifter og avsnitt */
+}
+
+.header {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #b22222; /* Julerød */
+  text-shadow: 1px 1px 2px #fff0f0;
+}
+
+.paragraph {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  color: #4a3a3a;
+}
+
+.section {
+  margin-top: 30px;
+  background-color: #f3f9f4; /* Lys grønnaktig boks */
+  border-radius: 10px;
+  padding: 20px;
+  border: 1.5px solid #8bc34a;
+  box-shadow: 0 4px 10px rgba(139, 195, 74, 0.2);
+}
+
+.section h3 {
+  font-size: 1.4rem;
+  color: #2e7d32;
+  margin-bottom: 12px;
+}
+
+.list {
+  list-style-type: none;
+  padding-left: 0;
+  font-weight: 600;
+  color: #4d3c3c;
+  margin-top: 10px;
+}
+
+.list li {
+  margin-bottom: 12px;
+  position: relative;
+  padding-left: 28px;
+  font-size: 1.15rem;
+  cursor: pointer;
+  user-select: text;
+  display: block; /* Viktig: hvert punkt under hverandre */
+  text-align: left;
+  width: 100%;
+}
+
+.list li::before {
+  content: "🎄";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.2rem;
+}
+
+.list li:hover {
+  color: #b22222;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+/* Responsiv design */
+@media (max-width: 600px) {
+  .container {
+    margin: 20px 15px;
+    padding: 20px 15px;
+  }
+
+  .header {
+    font-size: 1.8rem;
+  }
+
+  .paragraph {
+    font-size: 1rem;
+  }
+
+  .section {
+    padding: 15px;
+  }
+
+  .section h3 {
+    font-size: 1.2rem;
+  }
+
+  .list li {
+    font-size: 1.05rem;
+    padding-left: 26px;
+    margin-bottom: 14px;
+  }
+
+  .list li::before {
+    font-size: 1.1rem;
+  }
+}
