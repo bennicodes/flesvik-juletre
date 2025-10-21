@@ -23,7 +23,8 @@ button {
   /* Colors */
   --text-color: #1f2937; /* dark gray/brown for text */
   --secondary-text-color: #f9fafb; /* light text for contrast */
-  --background-color: #fef6ee; /* warm cream background */
+  --background-color: #dc2626; /* warm cream background */
+  /* --background-color: #fef6ee; warm cream background */
   --secondary-background-color: #047857; /* Christmas tree green */
   --navbar-background: #fcfcfc; /* darker green for navbar */
   --primary-color: #7c3aed; /* purple accent for buttons/links */

@@ -9,6 +9,6 @@
 .button:hover {
   background-color: var(--background-color);
   color: var(--accent-gold);
-  box-shadow: 0 0 8px var(--accent-gold);
+  box-shadow: 0 0 8px var(--background-color);
   transition: 0.2s ease;
 }

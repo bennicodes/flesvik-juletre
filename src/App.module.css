@@ -41,36 +41,42 @@
 
 .heroVideo {
   width: 100%;
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
 }
 
 .heroOverlay {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(4px);
   padding: var(--spacing-xl);
   border-radius: var(--border-radius-small);
-  max-width: 1000px;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--spacing-medium);
   text-align: center;
-  margin: var(--spacing-xl) var(--spacing-large);
+  margin: 150px 0;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   font-family: var(--main-font);
 }
 
 .heroHeading {
-  color: var(--accent-gold);
+  color: var(--secondary-text-color);
   font-family: var(--logo-font);
   font-size: var(--xl-font);
   font-weight: bold;
   margin-bottom: var(--spacing-medium);
   text-align: center;
+  text-decoration: underline;
 }
 
 .introHeading {
-  color: var(--text-color);
+  color: var(--secondary-text-color);
   font-family: var(--main-font);
-  margin-bottom: var(--spacing-large);
+  font-size: bold;
+  margin: 0 var(--spacing-large) var(--spacing-large) var(--spacing-large);
   line-height: 1.4;
 }
 
@@ -80,7 +86,6 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: var(--spacing-large);
-  margin-bottom: var(--spacing-large);
 }
 
 /* -------------------- CAROUSEL -------------------- */
@@ -93,49 +98,34 @@
 }
 
 /* -------------------- BUTTONS -------------------- */
-.primaryButton {
+.buttonGroup .primaryButton {
   min-width: 150px;
-  background-color: var(--accent-gold);
+  background-color: var(--background-color);
   color: var(--secondary-text-color);
-  border: 2px solid var(--accent-gold);
-  padding: var(--spacing-small) var(--spacing-medium);
+  border: 2px solid var(--background-color);
+  padding: var(--spacing-small) var(--spacing-large);
   border-radius: var(--border-radius-small);
   font-family: var(--main-font);
   font-weight: bold;
   transition: 0.2s ease;
 }
 
-.primaryButton:hover {
+.buttonGroup .primaryButton:hover {
   background-color: var(--secondary-text-color);
-  color: var(--accent-gold);
+  color: var(--background-color);
   transform: scale(0.97);
   cursor: pointer;
 }
 
-.buttonGroup .secondaryButton {
-  min-width: 150px;
-  background-color: var(--secondary-text-color);
-  color: var(--accent-gold);
-  border: 2px solid var(--accent-gold);
-  padding: var(--spacing-small) var(--spacing-medium);
-  border-radius: var(--border-radius-small);
-  font-family: var(--main-font);
-  transition: 0.2s ease;
-}
-
-.secondaryButton:hover {
-  background-color: var(--accent-gold);
-  color: var(--secondary-text-color);
-  transform: scale(0.97);
-}
-
 /* -------------------- DESCRIPTION BOXES -------------------- */
-.introDescription {
+.description {
+  background-color: var(--background-color);
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: var(--spacing-large);
   margin-top: var(--spacing-large);
+  z-index: 10;
 }
 
 .descriptionContainer {

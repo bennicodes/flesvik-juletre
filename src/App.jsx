@@ -29,8 +29,9 @@ function App() {
             loop
             muted
             className={styles.heroVideo}
-          ></video>
+          >
 
+          </video>
           <div className={styles.heroOverlay}>
             <h1 className={styles.heroHeading}>Flesvik Juletre</h1>
 
@@ -42,39 +43,36 @@ function App() {
             <div className={styles.buttonGroup}>
               <Button classname={styles.primaryButton}>Bestill juletre</Button>
             </div>
-
-            {/* <div className={styles.introDescription}>
-              <div className={styles.descriptionContainer}>
-                <h4>Sjølhogst hos Flesvik Juletre</h4>
-                <p>
-                  Opplev ekte julestemning – finn ditt eget juletre, sag det
-                  selv og skap en tradisjon hele familien vil elske.
-                </p>
-                <a href="#" className={styles.descriptionLink}>
-                  Les mer
-                </a>
-              </div>
-
-              <div className={styles.descriptionContainer}>
-                <h4>Selvbetjening på Haakens gård</h4>
-                <p>
-                  Raskt og enkelt – finn ditt perfekte juletre på Haakens gård!
-                  Velg, pakk og betal med Vipps – juleglede på et blunk.
-                </p>
-                <a href="#" className={styles.descriptionLink}>
-                  Les mer
-                </a>
-              </div>
-
-              <div className={styles.carouselWrapper}>
-                <Carousel images={carouselImages} autoPlay interval={5000} />
-              </div>
-            </div> */}
           </div>
+
         </section>
       </header>
 
-      <main></main>
+      <main>
+        <div className={styles.description}>
+          <div className={styles.descriptionContainer}>
+            <h4>Sjølhogst hos Flesvik Juletre</h4>
+            <p>
+              Opplev ekte julestemning – finn ditt eget juletre, sag det selv og
+              skap en tradisjon hele familien vil elske.
+            </p>
+            <a href="#" className={styles.descriptionLink}>
+              Les mer
+            </a>
+          </div>
+
+          <div className={styles.descriptionContainer}>
+            <h4>Selvbetjening på Haakens gård</h4>
+            <p>
+              Raskt og enkelt – finn ditt perfekte juletre på Haakens gård!
+              Velg, pakk og betal med Vipps – juleglede på et blunk.
+            </p>
+            <a href="#" className={styles.descriptionLink}>
+              Les mer
+            </a>
+          </div>
+        </div>
+      </main>
       <footer></footer>
     </div>
   );
