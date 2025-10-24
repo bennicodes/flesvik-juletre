@@ -29,9 +29,7 @@ function App() {
             loop
             muted
             className={styles.heroVideo}
-          >
-
-          </video>
+          ></video>
           <div className={styles.heroOverlay}>
             <h1 className={styles.heroHeading}>Flesvik Juletre</h1>
 
@@ -44,34 +42,79 @@ function App() {
               <Button classname={styles.primaryButton}>Bestill juletre</Button>
             </div>
           </div>
-
         </section>
       </header>
 
       <main>
-        <div className={styles.description}>
-          <div className={styles.descriptionContainer}>
-            <h4>Sjølhogst hos Flesvik Juletre</h4>
-            <p>
-              Opplev ekte julestemning – finn ditt eget juletre, sag det selv og
-              skap en tradisjon hele familien vil elske.
-            </p>
-            <a href="#" className={styles.descriptionLink}>
-              Les mer
-            </a>
+        <section className={styles.descriptionSection}>
+          <div className={styles.description}>
+            <div className={styles.textContainer}>
+              <h2>Sjølhogst på Flesvik Gård</h2>
+              <p>
+                Flesvik Juletre handler ikke bare om å kjøpe et tre, men om å
+                skape minner. Gjør selvhogst til en årlig tradisjon for hele
+                familien – med latter, bålkos og ekte julestemning.
+              </p>
+              <p>
+                Gå en rolig tur mellom snødekte grantrær, kjenn duften av frisk
+                skog og sag ned ditt eget juletre. Bålpanna står klar til bruk –
+                perfekt for en liten pause med varm kakao mens barna leker i
+                snøen. Er det nok snø, finner du flotte akebakker rett i
+                nærheten.
+              </p>
+              <p>
+                Du kan ta med din egen sag, eller låne en av oss. Når du har
+                funnet drømmetreet, kjører du det gjennom juletrepakkeren og
+                laster det enkelt på bilen eller hengeren – husk stropper om du
+                skal frakte det på taket.
+              </p>
+              <p>Betal trygt og enkelt med Vipps, og vips så du er ferdig!</p>
+            </div>
+            <div className={styles.imageContainer}>
+              <img
+                src="/assets/images/bålpanne.jpg"
+                alt="bålpanne"
+                className={styles.descriptionImage}
+              />
+            </div>
           </div>
 
-          <div className={styles.descriptionContainer}>
-            <h4>Selvbetjening på Haakens gård</h4>
-            <p>
-              Raskt og enkelt – finn ditt perfekte juletre på Haakens gård!
-              Velg, pakk og betal med Vipps – juleglede på et blunk.
-            </p>
-            <a href="#" className={styles.descriptionLink}>
-              Les mer
-            </a>
+          <div className={styles.divider}></div>
+
+          <div className={`${styles.description} ${styles.secondDescription}`}>
+            <div className={styles.imageContainer}>
+              <img
+                src="/assets/images/selvbetjening.png"
+                alt="juletre"
+                className={styles.descriptionImage}
+              />
+            </div>
+            <div className={styles.textContainer}>
+              <div>
+                <h2>Selvbetjening på Haakens gård</h2>
+                <h4>
+                  <strong>Adresse:</strong> Østre Hurdalveg 46, 2074 Eidsvoll
+                  Verk
+                </h4>
+              </div>
+              <p>
+                På vei hjem fra jobb eller ut på helgetur? Stikk innom Haakens
+                gård på Eidsvoll Verk og finn ditt perfekte juletre – raskt,
+                enkelt og helt i eget tempo. Her finner du flotte, nyhogde trær
+                fra Flesvik Juletre i Feiring.
+              </p>
+              <p>
+                Alt du trenger å vite står forklart på plakatene ved området.
+                Velg deg et tre, pakk det inn om du ønsker – og betal enkelt med
+                Vipps. Så er du ferdig!
+              </p>
+              <p>
+                Flesvik Juletre ønsker deg lykke til med å finne et flott tre
+                som skaper ekte julestemning i hjemmet ditt.
+              </p>
+            </div>
           </div>
-        </div>
+        </section>
       </main>
       <footer></footer>
     </div>

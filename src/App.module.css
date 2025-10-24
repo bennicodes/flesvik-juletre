@@ -1,8 +1,8 @@
 /* Root container */
 .rootContainer {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
   background-color: var(--background-color);
   color: var(--text-color);
 }
@@ -11,6 +11,10 @@
 .header {
   position: relative;
   width: 100%;
+}
+main {
+  width: 100%;
+  padding: 0;
 }
 
 .navbarContainer {
@@ -25,39 +29,38 @@
 .heroSection {
   position: relative;
   color: var(--text-color);
-  min-height: 500px;
+  min-height: 100vh;
   width: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: var(--spacing-xl);
-
-  /* background-image: url("/public/assets/images/juletrær-solnedgang.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover; */
+  overflow: hidden; /* ensures video doesn't spill out */
 }
 
 .heroVideo {
-  width: 100%;
-  position: sticky;
+  position: absolute;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0; /* background layer */
 }
 
 .heroOverlay {
-  background-color: rgba(255, 255, 255, 0.5);
+  position: relative;
+  z-index: 2; /* ensures it's always on top of video */
+  background-color: rgba(165, 15, 15, 0.7);
   backdrop-filter: blur(4px);
   padding: var(--spacing-xl);
-  border-radius: var(--border-radius-small);
-  max-width: 900px;
+  border-radius: 4rem;
+  max-width: 700px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: var(--spacing-medium);
   text-align: center;
-  margin: 150px 0;
+  margin: 150px var(--spacing-large);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   font-family: var(--main-font);
 }
@@ -84,107 +87,119 @@
 .buttonGroup {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: var(--spacing-large);
-}
-
-/* -------------------- CAROUSEL -------------------- */
-.carouselWrapper {
-  width: 100%;
-  max-width: 1100px;
-  padding: var(--spacing-large) 0;
-  border-radius: var(--border-radius-medium);
-  overflow: hidden;
 }
 
 /* -------------------- BUTTONS -------------------- */
 .buttonGroup .primaryButton {
-  min-width: 150px;
-  background-color: var(--background-color);
-  color: var(--secondary-text-color);
-  border: 2px solid var(--background-color);
+  min-width: 200px;
+  background-color: var(--secondary-text-color);
+  color: var(--secondary-color);
+  border: 2px solid var(--secondary-text-color);
   padding: var(--spacing-small) var(--spacing-large);
-  border-radius: var(--border-radius-small);
+  border-radius: var(--border-radius-large);
   font-family: var(--main-font);
   font-weight: bold;
   transition: 0.2s ease;
 }
 
 .buttonGroup .primaryButton:hover {
-  background-color: var(--secondary-text-color);
-  color: var(--background-color);
+  background-color: var(--secondary-color);
+  color: var(--secondary-text-color);
+  box-shadow: 0 0 16px var(--secondary-text-color);
   transform: scale(0.97);
   cursor: pointer;
 }
 
-/* -------------------- DESCRIPTION BOXES -------------------- */
-.description {
+/* -------------------- DESCRIPTION SECTION -------------------- */
+.descriptionSection {
+  width: 100%;
   background-color: var(--background-color);
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: var(--spacing-large);
-  margin-top: var(--spacing-large);
-  z-index: 10;
+  flex-direction: column;
+  /* gap: var(--spacing-small); */
 }
 
-.descriptionContainer {
-  background-color: white;
+.description {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  padding: var(--spacing-large) var(--spacing-xl);
+}
+
+.textContainer {
+  width: 50%;
   color: var(--text-color);
-  max-width: 400px;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  padding: var(--spacing-medium);
-  border-radius: var(--border-radius-small);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  text-align: left;
+  gap: var(--spacing-large);
+  margin: auto 0;
+  font-family: var(--main-font);
 }
-
-.descriptionContainer h4 {
-  color: var(--accent-gold);
+.textContainer h2 {
+  font-size: var(--large-font);
   font-weight: bold;
   margin-bottom: var(--spacing-small);
 }
-
-.descriptionContainer p {
+.textContainer h4 {
+  font-family: var(--main-font);
+}
+.textContainer p {
+  font-size: var(--medium-font);
   line-height: 1.4;
 }
 
-.descriptionLink {
-  width: 64px;
-  display: inline-block;
-  margin-top: var(--spacing-small);
-  text-decoration: none;
-  color: var(--accent-gold);
-  border-bottom: 1px solid var(--accent-gold);
-  transition: 0.2s ease;
+.imageContainer {
+  width: 100%;
+  flex-basis: 33%;
+  padding: var(--spacing-medium);
+  background-size: contain;
+}
+.descriptionImage {
+  max-height: 500px;
 }
 
-.descriptionLink:hover {
-  color: var(--text-color);
-  border-bottom: 1px solid var(--text-color);
+.divider {
+  width: 90%;
+  height: 2px;
+  background-color: var(--secondary-color);
+  margin: var(--spacing-medium) auto;
 }
-
 /* -------------------- MAIN & FOOTER -------------------- */
 main {
   flex: 1;
-  padding: var(--spacing-large);
 }
 
 /* -------------------- RESPONSIVE -------------------- */
-@media (max-width: 768px) {
+
+/* 📱 Mobile first (under 600px) */
+@media (max-width: 600px) {
+  .heroSection {
+    min-height: 100vh;
+    padding-top: var(--spacing-large);
+  }
+
+  .heroVideo {
+    height: 100%;
+    object-fit: cover;
+  }
+
   .heroOverlay {
+    position: relative;
+    margin: var(--spacing-large) var(--spacing-small);
     padding: var(--spacing-large);
-    margin: var(--spacing-medium);
+    border-radius: var(--border-radius-medium);
+    max-width: 90%;
+    background-color: rgba(165, 15, 15, 0.8);
   }
 
   .heroHeading {
-    font-size: var(--large-font);
+    font-size: 2rem;
+    text-decoration: none;
   }
 
   .introHeading {
     font-size: var(--base-font);
+    margin-bottom: var(--spacing-medium);
   }
 
   .buttonGroup {
@@ -192,7 +207,141 @@ main {
     gap: var(--spacing-small);
   }
 
-  .descriptionContainer {
-    max-width: 100%;
+  .description {
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-medium);
+  }
+  .secondDescription {
+    flex-direction: column-reverse;
+  }
+
+  .textContainer {
+    width: 100%;
+    text-align: center;
+  }
+
+  .textContainer h2 {
+    font-size: 1.5rem;
+  }
+
+  .textContainer p {
+    font-size: 1rem;
+  }
+
+  .imageContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .descriptionImage {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+  }
+
+  .divider {
+    width: 80%;
+    height: 1px;
+  }
+}
+
+/* 💻 Tablet (601px - 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .heroSection {
+    min-height: 90vh;
+  }
+
+  .heroOverlay {
+    padding: var(--spacing-large);
+    border-radius: var(--border-radius-large);
+    margin: var(--spacing-large);
+    max-width: 80%;
+  }
+
+  .heroHeading {
+    font-size: 2.5rem;
+  }
+
+  .introHeading {
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-large);
+  }
+
+  .description {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-large);
+    padding: var(--spacing-large);
+  }
+  .secondDescription {
+    flex-direction: column-reverse;
+  }
+
+  .textContainer {
+    width: 90%;
+    text-align: center;
+  }
+
+  .textContainer h2 {
+    font-size: 1.75rem;
+  }
+
+  .textContainer p {
+    font-size: 1.1rem;
+  }
+
+  .imageContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .descriptionImage {
+    max-height: 400px;
+    width: 80%;
+    object-fit: cover;
+  }
+
+  .divider {
+    width: 85%;
+  }
+}
+
+/* 🖥️ Desktop (over 1024px) */
+@media (min-width: 1025px) {
+  .heroSection {
+    min-height: 100vh;
+  }
+
+  .heroOverlay {
+    padding: var(--spacing-xl);
+    border-radius: 4rem;
+  }
+
+  .heroHeading {
+    font-size: var(--xl-font);
+  }
+
+  .introHeading {
+    font-size: var(--medium-font);
+  }
+
+  .description {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .textContainer {
+    width: 50%;
+  }
+
+  .imageContainer {
+    width: 50%;
+  }
+
+  .descriptionImage {
+    max-height: 500px;
   }
 }

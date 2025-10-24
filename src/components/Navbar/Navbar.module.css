@@ -6,25 +6,18 @@
   padding: var(--spacing-medium) var(--spacing-small);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   font-family: var(--main-font);
-  position: relative;
-}
-/* Scroll effect */
-.navbarContainer.scrolled {
-  background-color: rgba(252, 252, 252, 0.95);
-  backdrop-filter: blur(8px);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 .navbar {
   width: 100%;
   max-height: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  position: sticky;
-  top: 0;
-  left: 0;
-  z-index: 100;
+  z-index: 10;
 }
 /* Logo */
 .logoContainer {
@@ -32,10 +25,11 @@
   display: flex;
   align-items: center;
   padding-right: var(--spacing-large);
+  display: none;
 }
 
 .logoLink {
-  color: var(--accent-gold);
+  color: var(--secondary-color);
   height: 100%;
   display: flex;
   align-items: center;
@@ -49,7 +43,7 @@
 }
 
 .logoLink:hover {
-  color: var(--accent-gold);
+  text-decoration: underline;
   cursor: pointer;
 }
 
@@ -58,7 +52,6 @@
   display: flex;
   align-items: center;
   gap: var(--spacing-medium);
-  padding-right: var(--spacing-large);
 }
 .navLinks a {
   color: var(--text-color);
@@ -66,16 +59,16 @@
   text-decoration: none;
 }
 .navLinks a:hover {
-  color: var(--accent-gold);
-  border-bottom: 1px solid var(--accent-gold);
+  color: var(--secondary-color);
+  border-bottom: 1px solid var(--secondary-color);
 }
 
 .navLinks a.active {
-  color: var(--accent-gold);
-  border-bottom: 1px solid var(--accent-gold);
+  color: var(--secondary-color);
+  border-bottom: 1px solid var(--secondary-color);
 }
 .navLinks a.active:hover {
-  color: var(--accent-gold);
+  color: var(--secondary-color);
 }
 
 /* Menu */
@@ -86,17 +79,18 @@
   justify-content: center;
   border: none;
   padding: var(--spacing-small);
-  border: 1px solid var(--accent-gold);
+  border: 1px solid var(--secondary-color);
   z-index: 10;
   transition: 0.2s ease;
 }
 .menuButton:hover {
   color: var(--text-color);
   transition: 0.2s ease;
+  box-shadow: 0 0 4px var(--secondary-color);
 }
 
 .menuIcon {
-  color: var(--accent-gold);
+  color: var(--secondary-color);
   width: 16px;
   height: auto;
   z-index: 10;
@@ -105,7 +99,11 @@
 /* Media Queries */
 @media screen and (max-width: 825px) {
   .navbar {
+    justify-content: space-between;
     padding: 0 var(--spacing-medium);
+  }
+  .logoContainer {
+    display: block;
   }
   .menuButton {
     color: var(--secondary-text-color);

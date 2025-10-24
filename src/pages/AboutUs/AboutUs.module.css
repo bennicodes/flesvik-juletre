@@ -2,7 +2,7 @@
 
 .container {
   max-width: 800px;
-  margin: 40px auto;
+  margin: 100px auto;
   padding: 30px 25px;
   background-color: #ffffff; /* Hvit bakgrunn */
   border-radius: 15px;
@@ -11,13 +11,14 @@
   color: #3b2f2f;
   border: 1px solid #ddd;
   text-align: center; /* Sentrerer overskrifter og avsnitt */
+  font-family: var(--main-font);
 }
 
 .header {
   font-size: 2.2rem;
   font-weight: 700;
   margin-bottom: 20px;
-  color: #b22222; /* Julerød */
+  color: var(--secondary-color); /* Julerød */
   text-shadow: 1px 1px 2px #fff0f0;
 }
 
