@@ -1,21 +1,37 @@
 import { faBars, faTree } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router";
 import Button from "../Button/Button";
 import styles from "./Navbar.module.css";
 
 const Navbar = () => {
   const [isMenuActive, setIsMenuActive] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   // Open / close menu
   const handleMenuToggle = () => {
     setIsMenuActive((prev) => !prev);
   };
 
+  useEffect(() => {
+    const scrollThreshold = 80;
+    const handleScroll = () => setScrolled(window.scrollY > scrollThreshold);
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Prevent body from scrolling when menu is open
+  useEffect(() => {
+    document.body.style.overflow = isMenuActive ? "hidden" : "auto";
+  }, [isMenuActive]);
+
   return (
-    <div className={styles.navbarContainer}>
+    <div
+      className={`${styles.navbarContainer} ${scrolled ? styles.scrolled : ""}`}
+    >
       <div className={styles.navbar}>
         {/* Logo */}
         <div className={styles.logoContainer}>
@@ -44,16 +60,7 @@ const Navbar = () => {
               <NavLink
                 onClick={() => setIsMenuActive(false)}
                 className={({ isActive }) => (isActive ? styles.active : "")}
-                to="/tjenester"
-              >
-                Selvhogst
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                onClick={() => setIsMenuActive(false)}
-                className={({ isActive }) => (isActive ? styles.active : "")}
-                to="/om-oss"
+                to="/stell"
               >
                 Stell av juletre
               </NavLink>
