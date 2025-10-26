@@ -33,6 +33,7 @@ button {
   --navbar-background: #fcfcfc; /* darker green for navbar */
   --primary-color: #7c3aed; /* purple accent for buttons/links */
   --accent-gold: #a28010; /* gold for links or highlights */
+  --text-muted: #ffffff;
 
   /* Buttons */
   --secondary-color: #b22222; /* Christmas red for buttons/accent */

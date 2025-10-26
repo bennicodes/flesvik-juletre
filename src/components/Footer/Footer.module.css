@@ -1,0 +1,143 @@
+/* ========== 🌲 BASE STYLES ========== */
+.footer {
+  width: 100%;
+  background: var(--secondary-color);
+  color: var(--secondary-text-color);
+  font-family: var(--main-font);
+  padding: var(--large-font) 0;
+  box-shadow: 4px 0 8px rgba(0, 0, 0, 0.5);
+}
+
+/* ========== 🧩 INNER CONTAINER ========== */
+.inner {
+  max-width: 1100px;
+  min-height: 120px;
+  margin: 0 auto;
+  padding: var(--spacing-extra-large) var(--spacing-medium);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: var(--spacing-large);
+}
+
+/* ========== 🏷️ HEADINGS ========== */
+.heading {
+  font-family: var(--font-heading);
+  letter-spacing: 2px;
+  font-size: var(--text-large);
+  margin-bottom: var(--spacing-medium);
+  color: var(--color-primary);
+}
+
+.socialHeading {
+  padding-right: var(--spacing-small);
+}
+
+/* ========== 📞 CONTACT & LISTS ========== */
+.list,
+.socialList {
+  display: flex;
+  gap: var(--spacing-small);
+}
+
+.list {
+  flex-direction: column;
+}
+
+.list li,
+.socialList li {
+  font-family: var(--main-font);
+  font-size: var(--text-small);
+  color: var(--secondary-text-color);
+}
+
+/* ========== 🔗 LINKS ========== */
+a {
+  color: var(--secondary-text-color);
+  text-decoration: none;
+  transition: 0.2s ease-in-out;
+}
+
+a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* ========== 🧾 COPYRIGHT SECTION ========== */
+.copyrightSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.copy {
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  margin-bottom: var(--spacing-small);
+}
+
+/* ========== 📱 SOCIAL SECTION ========== */
+.socialSection {
+  min-height: 120px;
+  height: 100%;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+}
+
+.socialList {
+  justify-content: end;
+  gap: var(--spacing-medium);
+}
+
+.socialList li a {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-small);
+}
+
+.socialIcon {
+  width: 24px;
+  height: 24px;
+}
+
+/* ========== 🧠 RESPONSIVE DESIGN ========== */
+@media (max-width: 900px) {
+  .footer {
+    padding: 0;
+  }
+  .inner {
+    flex-direction: column; /* stack sections vertically by default */
+    /* align-items: center; */
+    justify-content: center;
+    text-align: center;
+    gap: 0;
+  }
+
+  .copyrightSection,
+  .contactSection,
+  .socialSection {
+    width: 100%;
+    padding: var(--spacing-large) 0;
+    border-bottom: 1px solid var(--secondary-text-color);
+    align-items: center;
+  }
+
+  .socialHeading {
+    padding-right: 0;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .footer {
+    font-size: var(--small-font);
+  }
+}

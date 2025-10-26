@@ -1,6 +1,7 @@
 import styles from "./App.module.css";
 import Button from "./components/Button/Button";
 import Carousel from "./components/Carousel/Carousel";
+import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Navbar/Navbar";
 
 function App() {
@@ -116,7 +117,9 @@ function App() {
           </div>
         </section>
       </main>
-      <footer></footer>
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 }
