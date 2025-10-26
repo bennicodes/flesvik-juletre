@@ -60,9 +60,9 @@ const Navbar = () => {
               <NavLink
                 onClick={() => setIsMenuActive(false)}
                 className={({ isActive }) => (isActive ? styles.active : "")}
-                to="/stell"
+                to="/våre-trær"
               >
-                Stell av juletre
+                Våre trær
               </NavLink>
             </li>
             <li>
