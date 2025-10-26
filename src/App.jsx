@@ -5,16 +5,6 @@ import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Navbar/Navbar";
 
 function App() {
-  const carouselImages = [
-    "/assets/images/kundebilde-2.jpg",
-    "/assets/images/kundebilde-1.jpg",
-    "/assets/images/snøbilde-flesvik.jpg",
-    "/assets/images/kundebilde-4.jpg",
-    "/assets/images/juletrær-solnedgang.jpg",
-    "/assets/images/kundebilde-3.jpg",
-    "/assets/images/juletre-sommer.jpg",
-  ];
-
   return (
     <div className={styles.rootContainer}>
       <header className={styles.header}>
