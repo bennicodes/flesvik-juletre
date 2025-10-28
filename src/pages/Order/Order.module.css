@@ -1,0 +1,68 @@
+/* General styling */
+.container {
+  background-color: var(--background-color);
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero {
+  min-height: 500px;
+  width: 100%;
+  margin-top: var(--spacing-medium);
+
+  background-image: url("/assets/images/christmas-ball.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+main {
+  width: 100%;
+  background-color: var(--background-color);
+  flex: 1;
+  padding: var(--spacing-large);
+}
+
+/* Form section */
+/* Description */
+.formDescription {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-medium);
+  padding: var(--spacing-large);
+  font-family: var(--main-font);
+}
+
+.formDescription h2 {
+  width: 125px;
+  color: var(--secondary-color);
+  border-bottom: 4px solid var(--secondary-color);
+  padding-bottom: 4px;
+  font-size: var(--large-font);
+}
+
+.formDescription p {
+  color: var(--text-color);
+  max-width: 50%;
+  font-weight: 400;
+}
+
+/* Form */
+.formContainer {
+  width: 100%;
+  padding: var(--spacing-medium) var(--spacing-xl);
+}
+.formContainer fieldset {
+  border: 2px solid var(--secondary-color);
+  border-radius: var(--border-radius-medium);
+}
+
+@media (max-width: 800px) {
+  .formDescription p {
+    max-width: 100%;
+  }
+}

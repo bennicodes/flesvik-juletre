@@ -1,0 +1,197 @@
+/* Animations */
+@keyframes swoopIn {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-4px);
+  }
+  40% {
+    transform: translateX(4px);
+  }
+  60% {
+    transform: translateX(-4px);
+  }
+  80% {
+    transform: translateX(4px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.formContainer {
+  width: 100%;
+  color: var(--text-main);
+  display: flex;
+  justify-content: center;
+  padding: var(--spacing-large);
+  border: none;
+  font-family: var(--font-body);
+}
+
+.form {
+  background-color: var(--background-secondary);
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-large);
+  padding: var(--spacing-extra-large) var(--spacing-large);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-large);
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-small);
+}
+
+.inputWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.inputWrapper input,
+.inputWrapper textarea {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-main);
+  padding: var(--spacing-extra-small) 0;
+  margin-bottom: 8px;
+  font-size: var(--text-base);
+  font-family: var(--font-body);
+  transition: border-color var(--transition-fast);
+}
+
+.inputWrapper textarea {
+  height: 150px;
+  resize: vertical;
+  font-size: var(--text-base);
+  padding: var(--spacing-small);
+}
+
+.inputWrapper.filled textarea {
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-medium);
+}
+
+.inputWrapper input:focus,
+.inputWrapper textarea:focus {
+  outline: none;
+  border-bottom: 1px solid var(--text-main);
+}
+.inputWrapper textarea:focus {
+  border: 1px solid var(--text-main);
+  border-radius: var(--border-radius-medium);
+}
+
+.inputWrapper label {
+  position: absolute;
+  left: 0;
+  bottom: 0.5rem;
+  padding: var(--spacing-small) 0;
+  font-size: var(--text-base);
+  color: var(--text-muted);
+  pointer-events: none;
+  transition: all 0.2s ease-out;
+}
+.inputWrapper .messageLabel {
+  padding: 12px 0;
+}
+.inputWrapper:focus-within .messageLabel,
+.inputWrapper.filled .messageLabel {
+  padding-left: 16px;
+}
+
+.inputWrapper:focus-within label,
+.inputWrapper.filled label {
+  transform: translateY(-1.5rem);
+  font-size: var(--text-small);
+  color: var(--text-main);
+}
+
+.characterCount {
+  font-size: var(--text-small);
+  color: var(--text-muted);
+  margin-top: var(--spacing-extra-small);
+}
+
+.characterCountWarning {
+  color: var(--color-error);
+}
+
+.actionContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-small);
+  width: 100%;
+}
+
+.submitButton {
+  color: var(--background-main);
+  background-color: var(--text-main);
+  width: 100%;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-small);
+  border: 2px solid var(--text-main);
+  border-radius: var(--border-radius-medium);
+
+  font-family: var(--font-body);
+  font-size: var(--text-large);
+  transition: background-color var(--transition-fast),
+    color var(--transition-fast), transform var(--transition-fast);
+}
+
+.submitButton:hover {
+  background-color: var(--background-secondary);
+  color: var(--text-main);
+}
+
+.submitButton:active {
+  transform: scale(0.98);
+  transition: transform 0.1s ease;
+}
+
+.loadingCircle{
+  width: 32px;
+  height: 32px;
+  border-top: 0.5rem solid var(--border-color);
+}
+
+.successMessage {
+  font-size: var(--text-small);
+  color: var(--text-main);
+  animation: swoopIn 0.5s ease forwards;
+}
+
+.errorMessage {
+  font-size: var(--text-small);
+  color: var(--color-error);
+  animation: shake 0.3s ease;
+}
+
+/* Media screen */
+@media screen and (max-width: 768px) {
+  .formContainer {
+    padding: var(--spacing-large) 0;
+  }
+}
