@@ -9,32 +9,35 @@ const AboutUs = () => {
       <header>
         <Navbar />
       </header>
-      <main>
-        <div className={styles.container}>
-          <h2 className={styles.header}>🎄 About Flesvik Juletre</h2>
+
+      <main className={styles.aboutSection}>
+        <div className={styles.content}>
+          <h2 className={styles.header}>🎄 Om Flesvik Juletre</h2>
+
           <p className={styles.paragraph}>
             Flesvik Juletre holder til langs Mjøsa, nærmere bestemt i Feiring
-            nord i Eidsvoll kommune. Gården heter Flesvik og ligger midt i
-            mellom Gjøvik og Oslo.
+            nord i Eidsvoll kommune. Gården heter Flesvik og ligger midt mellom
+            Gjøvik og Oslo.
           </p>
+
           <p className={styles.paragraph}>
-            På Flesvik gård bor Anett og Knut – Harald Flesvik med sine tre
-            barn. Knut – Harald er nå den sjette generasjonen på gården.
-            Sommeren 2012 ble de første juletreplantene satt ned i jorda, og har
-            blitt plantet jevnlig årene som har gått.
+            På Flesvik gård bor Anett og Knut-Harald Flesvik med sine tre barn.
+            Knut-Harald er sjette generasjon på gården. Sommeren 2012 ble de
+            første juletreplantene satt ned i jorda – og siden den gang har
+            plantingen fortsatt jevnlig.
           </p>
-          <div className={styles.section}>
-            <h3>📞 Ta gjerne kontakt med oss for en hyggelig juletreprat</h3>
-            <ul className={styles.list}>
+
+          <div className={styles.contact}>
+            <h3>📞 Ta gjerne kontakt for en hyggelig juletreprat</h3>
+            <ul>
               <li>Telefon Anett: 970 88 994</li>
               <li>Telefon Knut-Harald: 920 94 713</li>
             </ul>
           </div>
         </div>
       </main>
-      <footer>
-        <Footer />
-      </footer>
+
+      <Footer />
     </>
   );
 };

@@ -1,113 +1,126 @@
-/* AboutUs.module.css */
-
-.container {
-  max-width: 800px;
-  margin: 100px auto;
-  padding: 30px 25px;
-  background-color: #ffffff; /* Hvit bakgrunn */
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  font-family: "Georgia", serif;
-  color: #3b2f2f;
-  border: 1px solid #ddd;
-  text-align: center; /* Sentrerer overskrifter og avsnitt */
+.aboutSection {
+  min-height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("/assets/images/julekule.jpg") center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-xl) var(--spacing-medium);
   font-family: var(--main-font);
+  text-align: center;
+  color: var(--secondary-text-color);
 }
 
+/* ✨ Innholdsfelt med frostet glass-effekt */
+.content {
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(10px) brightness(1.1);
+  -webkit-backdrop-filter: blur(10px) brightness(1.1);
+  padding: var(--spacing-large) var(--spacing-medium);
+  border-radius: var(--border-radius-large);
+  max-width: 800px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* 🏷️ Overskrift */
 .header {
-  font-size: 2.2rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-  color: var(--secondary-color); /* Julerød */
-  text-shadow: 1px 1px 2px #fff0f0;
+  font-size: var(--xl-font);
+  color: var(--secondary-color); /* 🎄 Rød julefarge */
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+  margin-bottom: var(--spacing-medium);
+  font-family: var(--logo-font);
 }
 
+/* 📜 Avsnitt */
 .paragraph {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin-bottom: 16px;
-  color: #4a3a3a;
+  font-size: var(--base-font);
+  line-height: 1.8;
+  color: #ffffff; /* hvit tekst for god kontrast */
+  margin-bottom: var(--spacing-medium);
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
 }
 
-.section {
-  margin-top: 30px;
-  background-color: #f3f9f4; /* Lys grønnaktig boks */
-  border-radius: 10px;
-  padding: 20px;
-  border: 1.5px solid #8bc34a;
-  box-shadow: 0 4px 10px rgba(139, 195, 74, 0.2);
+/* 📞 Kontaktseksjon */
+.contact {
+  margin-top: var(--spacing-large);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: var(--border-radius-medium);
+  padding: var(--spacing-medium);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.section h3 {
-  font-size: 1.4rem;
-  color: #2e7d32;
-  margin-bottom: 12px;
+.contact h3 {
+  color: var(--secondary-color); /* Rød overskrift */
+  font-size: var(--medium-font);
+  margin-bottom: var(--spacing-small);
+  font-family: var(--main-font);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
 }
 
-.list {
-  list-style-type: none;
-  padding-left: 0;
-  font-weight: 600;
-  color: #4d3c3c;
-  margin-top: 10px;
+.contact ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.list li {
-  margin-bottom: 12px;
-  position: relative;
+.contact li {
+  font-size: var(--base-font);
+  margin: var(--spacing-small) 0;
   padding-left: 28px;
-  font-size: 1.15rem;
-  cursor: pointer;
-  user-select: text;
-  display: block; /* Viktig: hvert punkt under hverandre */
+  position: relative;
   text-align: left;
-  width: 100%;
+  color: #ffffff; /* hvit tekst */
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
 }
 
-.list li::before {
+.contact li::before {
   content: "🎄";
   position: absolute;
   left: 0;
   top: 0;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
-.list li:hover {
-  color: #b22222;
-  text-decoration: underline;
+.contact li:hover {
+  color: var(--accent-gold);
   transition: color 0.3s ease;
 }
 
-/* Responsiv design */
-@media (max-width: 600px) {
-  .container {
-    margin: 20px 15px;
-    padding: 20px 15px;
+/* 🌱 Responsiv design */
+@media (max-width: 700px) {
+  .content {
+    padding: var(--spacing-medium);
   }
 
   .header {
-    font-size: 1.8rem;
+    font-size: var(--large-font);
   }
 
   .paragraph {
+    font-size: 0.95rem;
+  }
+
+  .contact h3 {
     font-size: 1rem;
   }
 
-  .section {
-    padding: 15px;
+  .contact li {
+    font-size: 0.95rem;
   }
+}
 
-  .section h3 {
-    font-size: 1.2rem;
+/* 🌟 Fade-in animasjon */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-
-  .list li {
-    font-size: 1.05rem;
-    padding-left: 26px;
-    margin-bottom: 14px;
-  }
-
-  .list li::before {
-    font-size: 1.1rem;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
