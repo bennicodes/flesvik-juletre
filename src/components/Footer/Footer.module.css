@@ -97,7 +97,11 @@ a:hover {
   flex-direction: column;
   gap: 4px;
 }
-
+.socialLink:hover {
+  transform: scale(1.1);
+  transition: 0.2 ease;
+  cursor: pointer;
+}
 .socialLink {
   display: flex;
   align-items: center;
@@ -116,7 +120,6 @@ a:hover {
   }
   .inner {
     flex-direction: column; /* stack sections vertically by default */
-    /* align-items: center; */
     justify-content: center;
     text-align: center;
     gap: 0;
@@ -126,7 +129,7 @@ a:hover {
   .contactSection,
   .socialSection {
     width: 100%;
-    padding: var(--spacing-large) 0;
+    padding: var(--spacing-medium) 0;
     border-bottom: 1px solid var(--secondary-text-color);
     align-items: center;
   }

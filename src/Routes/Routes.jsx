@@ -5,6 +5,7 @@ import {
 } from "react-router";
 import App from "../App";
 import AboutUs from "../pages/AboutUs/AboutUs";
+import Order from "../pages/Order/Order";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -12,7 +13,7 @@ export const router = createBrowserRouter(
       <Route index element={<App />} />
       {/* <Route path="/kontakt" element={<Contact />} /> */}
       <Route path="/om-oss" element={<AboutUs />} />
-      {/* <Route path="/tjenester" element={<Services />} /> */}
+      <Route path="/bestill" element={<Order />} />
     </Route>
   )
 );

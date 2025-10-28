@@ -77,7 +77,7 @@ const Navbar = () => {
             <li>
               <NavLink
                 onClick={() => setIsMenuActive(false)}
-                to="/kontakt"
+                to="/bestill"
                 className={({ isActive }) => (isActive ? styles.active : "")}
               >
                 Bestill
