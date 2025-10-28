@@ -1,5 +1,5 @@
 import { useState } from "react";
-// import { sendContactEmail } from "../../config/emailJsConfig";
+import { sendContactEmail } from "../../config/emailJsConfig";
 import useContactFormValidation from "../../hooks/useFormValidation";
 import Button from "../Button/Button";
 import Spinner from "../Spinner/Spinner";
@@ -176,7 +176,7 @@ const ContactForm = () => {
             {isLoading ? (
               <Spinner spinnerClassName={styles.loadingCircle} />
             ) : (
-              "Send"
+              "Bestill"
             )}
           </Button>
         </div>

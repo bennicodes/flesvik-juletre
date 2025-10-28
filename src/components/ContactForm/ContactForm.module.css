@@ -38,25 +38,27 @@
 /* ---------------------- */
 .formContainer {
   width: 100%;
+  max-width: 1000px;
   display: flex;
   justify-content: center;
-  padding: var(--spacing-xl) var(--spacing-medium);
-  border: none;
   font-family: var(--main-font);
-  color: var(--text-color);
-  background: var(--background-color);
+  color: var(--secondary-text-color);
+  border: 4px solid var(--secondary-color);
+  border-radius: var(--border-radius-large);
+  margin: 0 auto;
 }
 
 .form {
-  background-color: var(--navbar-background);
+  background-color: var(--secondary-color);
   width: 100%;
-  max-width: 800px;
+  max-width: 1000px;
   display: flex;
   flex-direction: column;
   gap: var(--spacing-large);
+  margin: 4px;
   padding: var(--spacing-xl) var(--spacing-large);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  border-radius: var(--border-radius-large);
+  border: 1px solid var(--secondary-text-color);
+  border-radius: var(--border-radius-medium);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
@@ -79,8 +81,8 @@
   width: 100%;
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid rgba(31, 41, 55, 0.3); /* muted gray line */
-  color: var(--text-color);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5); /* muted gray line */
+  color: var(--secondary-text-color);
   padding: var(--spacing-small) 0;
   font-size: var(--base-font);
   font-family: var(--main-font);
@@ -95,7 +97,7 @@
 }
 
 .inputWrapper.filled textarea {
-  border: 1px solid rgba(31, 41, 55, 0.3);
+  border: 1px solid var(--secondary-text-color);
   border-radius: var(--border-radius-medium);
 }
 
@@ -103,11 +105,11 @@
 .inputWrapper input:focus,
 .inputWrapper textarea:focus {
   outline: none;
-  border-bottom: 1px solid var(--primary-color);
+  border-bottom: 2px solid var(--secondary-text-color);
 }
 
 .inputWrapper textarea:focus {
-  border: 1px solid var(--primary-color);
+  border: 1px solid var(--secondary-text-color);
   border-radius: var(--border-radius-medium);
 }
 
@@ -116,22 +118,22 @@
   position: absolute;
   left: 0;
   bottom: 0.5rem;
-  padding: var(--spacing-small) 0;
+  padding: var(--spacing-base) 0;
   font-size: var(--base-font);
-  color: rgba(31, 41, 55, 0.5);
+  color: rgba(255, 255, 255, 0.5);
   pointer-events: none;
   transition: all 0.2s ease-out;
 }
 
 .inputWrapper .messageLabel {
-  padding: 12px 0;
+  padding: 12px 0 0 0;
 }
 
 .inputWrapper:focus-within label,
 .inputWrapper.filled label {
   transform: translateY(-1.5rem);
-  font-size: var(--small-font);
-  color: var(--primary-color);
+  font-size: var(--small-base);
+  color: var(--secondary-text-color);
 }
 
 /* ---------------------- */
@@ -139,7 +141,7 @@
 /* ---------------------- */
 .characterCount {
   font-size: var(--small-font);
-  color: rgba(31, 41, 55, 0.5);
+  color: hsla(0, 0%, 100%, 0.7);
   margin-top: var(--spacing-extra-small);
 }
 
@@ -165,17 +167,16 @@
   align-items: center;
   justify-content: center;
   border-radius: var(--border-radius-medium);
-  border: 2px solid var(--primary-color);
-  background-color: var(--primary-color);
-  color: var(--secondary-text-color);
+  background-color: var(--secondary-text-color);
+  color: var(--secondary-color);
   font-family: var(--main-font);
   font-size: var(--medium-font);
   transition: all 0.3s ease;
 }
 
 .submitButton:hover {
-  background-color: var(--secondary-background-color); /* green hover */
-  border-color: var(--secondary-background-color);
+  background-color: var(--secondary-color); /* green hover */
+  border-color: var(--secondary-text-color);
   color: var(--secondary-text-color);
 }
 
@@ -201,7 +202,7 @@
 
 .errorMessage {
   font-size: var(--small-font);
-  color: var(--secondary-color);
+  color: var(--error-color);
   animation: shake 0.3s ease;
 }
 
@@ -209,11 +210,7 @@
 /* Responsive */
 /* ---------------------- */
 @media screen and (max-width: 768px) {
-  .formContainer {
-    padding: var(--spacing-large) 0;
-  }
-
   .form {
-    padding: var(--spacing-large) var(--spacing-medium);
+    padding: var(--spacing-small) var(--spacing-medium);
   }
 }

@@ -28,10 +28,8 @@ const Order = () => {
           </div>
         </div>
         <div className={styles.formContainer}>
-          <fieldset>
-            <legend>Bestillings skjema</legend>
+            {/* <legend>Bestillings skjema</legend> */}
           <ContactForm />
-          </fieldset>
         </div>
       </main>
       <footer>

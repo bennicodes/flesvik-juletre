@@ -8,9 +8,8 @@
 }
 
 .hero {
-  min-height: 500px;
+  height: 500px;
   width: 100%;
-  /* margin-top: var(--spacing-medium); */
 
   background-image: url("/assets/images/christmas-ball.jpg");
   background-position: center;
@@ -23,7 +22,7 @@ main {
   width: 100%;
   background-color: var(--background-color);
   flex: 1;
-  padding: var(--spacing-large);
+  padding: var(--spacing-large) var(--spacing-xl);
 }
 
 /* Form section */
@@ -57,12 +56,22 @@ main {
   padding: var(--spacing-medium) var(--spacing-xl);
 }
 .formContainer fieldset {
-  border: 2px solid var(--secondary-color);
-  border-radius: var(--border-radius-medium);
+  /* border: 2px solid var(--secondary-color); */
+  /* border-radius: var(--border-radius-medium); */
 }
 
 @media (max-width: 800px) {
+  .hero {
+    height: 300px;
+  }
+  main {
+    padding: var(--spacing-medium);
+  }
   .formDescription p {
     max-width: 100%;
+  }
+
+  .formContainer {
+    padding: var(--spacing-small) var(--spacing-medium);
   }
 }
