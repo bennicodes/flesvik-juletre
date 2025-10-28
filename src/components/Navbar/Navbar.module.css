@@ -54,7 +54,7 @@
   align-items: center;
   gap: var(--spacing-large);
   list-style: none;
-  padding-right: var(--spacing-medium);
+  padding-right: var(--spacing-large);
   transition: all 0.3s ease;
 }
 
