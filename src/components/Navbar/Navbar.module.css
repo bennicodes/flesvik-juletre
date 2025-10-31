@@ -54,7 +54,7 @@
   align-items: center;
   gap: var(--spacing-large);
   list-style: none;
-  padding-right: var(--spacing-large);
+  padding: 0 var(--spacing-large);
   transition: all 0.3s ease;
 }
 
@@ -89,6 +89,9 @@
   .scrolled .navbar {
     justify-content: center;
   }
+  /* .scrolled .navbarLinks {
+    padding-right: 0;
+  } */
 
   .scrolled .navLinks a {
     color: var(--text-color);
@@ -144,7 +147,7 @@
     background-color: var(--navbar-background);
     flex-direction: column;
     justify-content: center;
-    padding-right: 0;
+    padding: 0;
     gap: 0;
     position: fixed;
     top: 0;

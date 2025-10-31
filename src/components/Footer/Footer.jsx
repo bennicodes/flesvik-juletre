@@ -28,7 +28,7 @@ const Footer = () => {
 
         {/* Copyright / quick links */}
         <section className={styles.copyrightSection}>
-          <p className={styles.copy}>© 2025 Pareo Webutvikling</p>
+          <p className={styles.copy}>© 2025 Pareo Webdesign</p>
           <p>All rights reserved</p>
         </section>
 
