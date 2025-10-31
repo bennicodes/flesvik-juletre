@@ -179,6 +179,34 @@ const ContactForm = () => {
         </div>
         {/* -------------------- */}
 
+        {/* Tree Height */}
+        <div className={styles.inputGroup}>
+          <div
+            className={`${styles.inputWrapper} ${
+              formData.treeHeight ? styles.filled : ""
+            }`}
+          >
+            <div className={styles.labelWrapper}>
+              <label htmlFor="treeHeight" className={styles.treeHeightLabel}>
+                Skriv inn høyden på treet (standard 2,30m)
+              </label>
+            </div>
+            <input
+              type="number"
+              name="treeHeight"
+              placeholder="2,30"
+              onChange={handleChange}
+              value={formData.treeHeight}
+              onBlur={handleBlur}
+              className={styles.heightInput}
+            />
+            <span className={styles.heightUnit}>m</span>
+          </div>
+          {errors.treeHeight && (
+            <p className={styles.errorMessage}>{errors.treeHeight}</p>
+          )}
+        </div>
+
         {/* -------------------- Radio Groups -------------------- */}
         {/* Tree Type */}
         <div className={`${styles.inputGroup} ${styles.radioGroups}`}>
@@ -271,34 +299,6 @@ const ContactForm = () => {
           )}
           {errors.branchDensity && (
             <p className={styles.errorMessage}>{errors.branchDensity}</p>
-          )}
-        </div>
-
-        {/* Tree Height */}
-        <div className={styles.inputGroup}>
-          <div
-            className={`${styles.inputWrapper} ${
-              formData.treeHeight ? styles.filled : ""
-            }`}
-          >
-            <div className={styles.labelWrapper}>
-              <label htmlFor="treeHeight" className={styles.treeHeightLabel}>
-                Skriv inn høyden på treet (standard 2,30m)
-              </label>
-            </div>
-            <input
-              type="number"
-              name="treeHeight"
-              placeholder="2,30"
-              onChange={handleChange}
-              value={formData.treeHeight}
-              onBlur={handleBlur}
-              className={styles.heightInput}
-            />
-            <span className={styles.heightUnit}>m</span>
-          </div>
-          {errors.treeHeight && (
-            <p className={styles.errorMessage}>{errors.treeHeight}</p>
           )}
         </div>
 
