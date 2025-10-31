@@ -12,6 +12,7 @@ export default function useContactFormValidation() {
       newErrors.name = "Vennligst oppgi navnet ditt";
     }
     // ------------------
+
     if (!formData.email.trim()) {
       newErrors.email = "Vennligst oppgi e-postadressen din";
     } else if (!emailRegex.test(formData.email.trim())) {
@@ -26,9 +27,25 @@ export default function useContactFormValidation() {
       newErrors.phone = "Telefonnummeret må bestå av 8 siffer";
     }
     // ------------------
-    if (!formData.message.trim()) {
-      newErrors.message = "Vennligst skriv inn henvendelsen din";
-    } else if (formData.message.trim().length > 300) {
+
+    if (!formData.address.trim()) {
+      newErrors.address = "Vennligst oppgi leveringsadresse";
+    }
+    // ------------------
+
+    if (!formData.treeType) {
+      newErrors.treeType = "Vennligst velg tretype";
+    }
+    // ------------------
+    if (!formData.treeForm) {
+      newErrors.treeForm = "Vennligst velg form på treet";
+    }
+    // ------------------
+    if (!formData.branchDensity) {
+      newErrors.branchDensity = "Vennligst velg tettheet mellom kvistene";
+    }
+    // ------------------
+    if (formData.message.trim().length > 300) {
       newErrors.message = "Maks 300 tegn";
     }
 
@@ -56,9 +73,17 @@ export default function useContactFormValidation() {
         message = "Telefonnummeret må bestå av 8 siffer";
     }
 
+    if (name === "address") {
+      if (!value.trim()) message = "Vennligst oppgi leveringsadresse";
+    }
+    // Radio buttons
+    if (name === "treeType" && !value) message = "Vennligst velg tretype";
+    if (name === "treeForm" && !value) message = "Vennligst velg form på treet";
+    if (name === "branchDensity" && !value)
+      message = "Vennligst velg tetthet på kvistene";
+
     if (name === "message") {
-      if (!value.trim()) message = "Vennligst skriv inn henvendelsen din";
-      else if (value.trim().length > 300) message = "Maks 300 tegn";
+      if (value.trim().length > 300) message = "Maks 300 tegn";
     }
 
     setErrors((prev) => ({ ...prev, [name]: message }));

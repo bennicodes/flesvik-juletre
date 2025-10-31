@@ -34,7 +34,8 @@ button {
   --primary-color: #7c3aed; /* purple accent for buttons/links */
   --accent-gold: #a28010; /* gold for links or highlights */
   --text-muted: #ffffff;
-  --error-color: #fbbf24;
+  --radio-highlight: #047857;
+  --error-color: #ffd261;
 
   /* Buttons */
   --secondary-color: #b22222; /* Christmas red for buttons/accent */

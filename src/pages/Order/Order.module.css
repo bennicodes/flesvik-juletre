@@ -26,13 +26,18 @@ main {
 }
 
 /* Form section */
+.formSection {
+  width: 100%;
+  /* padding: var(--spacing-large); */
+}
+
 /* Description */
 .formDescription {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: var(--spacing-medium);
-  padding: var(--spacing-large);
+  padding: var(--spacing-large) var(--spacing-small);
   font-family: var(--main-font);
 }
 
@@ -46,18 +51,9 @@ main {
 
 .formDescription p {
   color: var(--text-color);
-  max-width: 50%;
+  max-width: 75%;
   font-weight: 400;
-}
-
-/* Form */
-.formContainer {
-  width: 100%;
-  padding: var(--spacing-medium) var(--spacing-xl);
-}
-.formContainer fieldset {
-  /* border: 2px solid var(--secondary-color); */
-  /* border-radius: var(--border-radius-medium); */
+  line-height: 1.4;
 }
 
 @media (max-width: 800px) {
@@ -69,9 +65,5 @@ main {
   }
   .formDescription p {
     max-width: 100%;
-  }
-
-  .formContainer {
-    padding: var(--spacing-small) var(--spacing-medium);
   }
 }
