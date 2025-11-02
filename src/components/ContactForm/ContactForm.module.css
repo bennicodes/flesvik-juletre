@@ -45,7 +45,7 @@
   color: var(--secondary-text-color);
   border: 4px solid var(--secondary-color);
   border-radius: var(--border-radius-large);
-  margin: 0 auto;
+  margin: 0 auto var(--spacing-xl) auto;
 }
 
 .form {

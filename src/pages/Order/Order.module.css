@@ -5,14 +5,14 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  animation: var(--fade-in);
 }
 
 .hero {
   height: 500px;
   width: 100%;
-
   background-image: url("/assets/images/christmas-ball.jpg");
-  background-position: center;
+  background-position: center top;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -28,7 +28,7 @@ main {
 /* Form section */
 .formSection {
   width: 100%;
-  /* padding: var(--spacing-large); */
+  padding: var(--spacing-large);
 }
 
 /* Description */
@@ -59,6 +59,7 @@ main {
 @media (max-width: 800px) {
   .hero {
     height: 300px;
+    background-size: contain;
   }
   main {
     padding: var(--spacing-medium);
@@ -66,4 +67,10 @@ main {
   .formDescription p {
     max-width: 100%;
   }
+}
+
+@media (max-width: 600px) {
+.hero{
+  height: 250px;
+}
 }

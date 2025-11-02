@@ -2,26 +2,26 @@
   min-height: 100vh;
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("/assets/images/julekule.jpg") center/cover no-repeat;
+
   display: flex;
   justify-content: center;
   align-items: center;
   padding: var(--spacing-xl) var(--spacing-medium);
   font-family: var(--main-font);
   text-align: center;
-  color: var(--secondary-text-color);
 }
 
 /* ✨ Innholdsfelt med frostet glass-effekt */
 .content {
-  background: rgba(255, 255, 255, 0.18);
+  background: rgb(255, 255, 255, 0.7);
   backdrop-filter: blur(10px) brightness(1.1);
   -webkit-backdrop-filter: blur(10px) brightness(1.1);
   padding: var(--spacing-large) var(--spacing-medium);
-  border-radius: var(--border-radius-large);
+  border-radius: var(--border-radius-small);
   max-width: 800px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.35);
-  animation: fadeIn 1s ease-in-out;
+  animation: var(--fade-in);
 }
 
 /* 🏷️ Overskrift */
@@ -37,9 +37,10 @@
 .paragraph {
   font-size: var(--base-font);
   line-height: 1.8;
-  color: #ffffff; /* hvit tekst for god kontrast */
+  color: var(--text-color); /* hvit tekst for god kontrast */
   margin-bottom: var(--spacing-medium);
-  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+  line-height: 1.4;
+  /* text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7); */
 }
 
 /* 📞 Kontaktseksjon */
@@ -58,10 +59,14 @@
   font-size: var(--medium-font);
   margin-bottom: var(--spacing-small);
   font-family: var(--main-font);
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
 }
 
 .contact ul {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-large);
   list-style: none;
   padding: 0;
   margin: 0;
@@ -73,8 +78,12 @@
   padding-left: 28px;
   position: relative;
   text-align: left;
-  color: #ffffff; /* hvit tekst */
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+  color: var(--text-color);
+  /* text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5); */
+}
+
+.contact li a {
+  color: var(--text-color);
 }
 
 .contact li::before {
@@ -85,12 +94,12 @@
   font-size: 1.1rem;
 }
 
-.contact li:hover {
+.contact li a:hover {
   color: var(--accent-gold);
   transition: color 0.3s ease;
 }
 
-/* 🌱 Responsiv design */
+/* 🌱 Responsive design */
 @media (max-width: 700px) {
   .content {
     padding: var(--spacing-medium);
@@ -110,17 +119,5 @@
 
   .contact li {
     font-size: 0.95rem;
-  }
-}
-
-/* 🌟 Fade-in animasjon */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
 }
