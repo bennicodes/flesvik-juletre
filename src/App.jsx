@@ -1,10 +1,16 @@
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./App.module.css";
 import Button from "./components/Button/Button";
 import Carousel from "./components/Carousel/Carousel";
 import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Navbar/Navbar";
+import useScrollToTop from "./hooks/useScrollToTop";
 
 function App() {
+  const navigate = useNavigate();
+  useScrollToTop(); // Auto scroll to top
+
   return (
     <div className={styles.rootContainer}>
       <header className={styles.header}>
@@ -30,7 +36,14 @@ function App() {
             </h3>
 
             <div className={styles.buttonGroup}>
-              <Button classname={styles.primaryButton}>Bestill juletre</Button>
+              <Button
+                classname={styles.primaryButton}
+                onClick={() => {
+                  navigate("/bestill");
+                }}
+              >
+                Bestill juletre
+              </Button>
             </div>
           </div>
         </section>

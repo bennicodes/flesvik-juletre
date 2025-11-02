@@ -1,9 +1,12 @@
 import React from "react";
 import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/Navbar";
+import useScrollToTop from "../../hooks/useScrollToTop";
 import styles from "./AboutUs.module.css";
 
 const AboutUs = () => {
+  useScrollToTop(); // Auto scroll to top on load
+
   return (
     <>
       <header>
@@ -30,8 +33,12 @@ const AboutUs = () => {
           <div className={styles.contact}>
             <h3>📞 Ta gjerne kontakt for en hyggelig juletreprat</h3>
             <ul>
-              <li>Telefon Anett: 970 88 994</li>
-              <li>Telefon Knut-Harald: 920 94 713</li>
+              <li>
+                <a href="tel:+4797088994">Telefon Anett: 970 88 994</a>
+              </li>
+              <li>
+                <a href="tel:+4792094713">Telefon Knut-Harald: 920 94 713</a>
+              </li>
             </ul>
           </div>
         </div>

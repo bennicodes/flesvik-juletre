@@ -16,6 +16,10 @@
 
 body {
   min-width: 350px;
+  background-color: var(--secondary-color);
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 a,
@@ -61,4 +65,18 @@ button {
   --border-radius-small: 4px;
   --border-radius-medium: 8px;
   --border-radius-large: 16px;
+
+  /* Animations */
+  --fade-in: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
