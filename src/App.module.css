@@ -62,7 +62,7 @@ main {
   gap: var(--spacing-medium);
   text-align: center;
   margin: 150px var(--spacing-large);
-  box-shadow:  4px 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.5);
   font-family: var(--main-font);
 }
 
@@ -182,7 +182,6 @@ main {
 
   .heroVideo {
     height: 100%;
-    object-fit: cover;
   }
 
   .heroOverlay {
