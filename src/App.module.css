@@ -45,6 +45,7 @@ main {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  animation: fadeLoop 10s infinite;
   z-index: 0; /* background layer */
 }
 
@@ -346,14 +347,14 @@ main {
 /* ---------- */
 /* Animations */
 /* ---------- */
-/* Fade in */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
+
+@keyframes fadeLoop {
+  0%,
+  98% {
     opacity: 1;
-    transform: translateY(0);
   }
+  99%,
+  100% {
+    opacity: 0.99;
+  } /* Tiny fade hides loop jump */
 }

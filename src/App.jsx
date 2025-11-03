@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./App.module.css";
 import Button from "./components/Button/Button";
@@ -11,20 +11,6 @@ function App() {
   const navigate = useNavigate();
   useScrollToTop(); // Auto scroll to top
 
-  useEffect(() => {
-    const video = document.getElementById("heroVideo");
-    if (!video) return;
-
-    const handleVideoEnded = () => {
-      video.currentTime = 0;
-      video.play().catch(() => {});
-    };
-
-    video.addEventListener("ended", handleVideoEnded);
-
-    return () => video.removeEventListener("ended", handleVideoEnded);
-  }, []);
-
   return (
     <div className={styles.rootContainer}>
       <header className={styles.header}>
@@ -35,7 +21,7 @@ function App() {
         {/* HERO SECTION */}
         <section className={styles.heroSection}>
           <video
-            src="/assets/videos/snow-animation.mp4"
+            src="/assets/videos/snow-animation(shortened).mp4"
             autoPlay
             loop
             muted
