@@ -11,6 +11,20 @@ function App() {
   const navigate = useNavigate();
   useScrollToTop(); // Auto scroll to top
 
+  useEffect(() => {
+    const video = document.getElementById("heroVideo");
+    if (!video) return;
+
+    const handleVideoEnded = () => {
+      video.currentTime = 0;
+      video.play().catch(() => {});
+    };
+
+    video.addEventListener("ended", handleVideoEnded);
+
+    return () => video.removeEventListener("ended", handleVideoEnded);
+  }, []);
+
   return (
     <div className={styles.rootContainer}>
       <header className={styles.header}>
@@ -28,6 +42,7 @@ function App() {
             playsInline
             preload="auto"
             className={styles.heroVideo}
+            id="heroVideo"
           ></video>
           <div className={styles.heroOverlay}>
             <h1 className={styles.heroHeading}>Flesvik Juletre</h1>
