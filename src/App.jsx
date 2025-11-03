@@ -25,6 +25,8 @@ function App() {
             autoPlay
             loop
             muted
+            playsInline
+            preload="auto"
             className={styles.heroVideo}
           ></video>
           <div className={styles.heroOverlay}>
