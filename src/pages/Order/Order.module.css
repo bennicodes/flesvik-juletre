@@ -56,7 +56,7 @@ main {
   line-height: 1.4;
 }
 
-@media (max-width: 800px) {
+@media screen and (max-width: 800px) {
   .hero {
     height: 300px;
     background-size: contain;
@@ -69,8 +69,8 @@ main {
   }
 }
 
-@media (max-width: 600px) {
-.hero{
-  height: 250px;
-}
+@media screen and (max-width: 600px) {
+  .hero {
+    height: 250px;
+  }
 }

@@ -164,6 +164,7 @@ main {
 
 .imageContainer img {
   background-color: var(--secondary-text-color);
+  max-height: 400px;
   height: 100%;
   object-fit: cover;
   padding: var(--spacing-medium);
