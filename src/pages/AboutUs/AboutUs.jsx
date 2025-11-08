@@ -2,10 +2,17 @@ import React from "react";
 import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/Navbar";
 import useScrollToTop from "../../hooks/useScrollToTop";
+import useSeo from "../../hooks/useSeo";
 import styles from "./AboutUs.module.css";
 
 const AboutUs = () => {
   useScrollToTop(); // Auto scroll to top on load
+
+  useSeo({
+    title: "Om oss | Flesvik Juletre",
+    description:
+      "Les om Flesvik Juletre – en familiebedrift ved Mjøsa som dyrker ekte, norske juletrær med tradisjon og kjærlighet til naturen.",
+  });
 
   return (
     <>

@@ -4,19 +4,44 @@ import Carousel from "../../components/Carousel/Carousel";
 import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/Navbar";
 import useScrollToTop from "../../hooks/useScrollToTop";
+import useSeo from "../../hooks/useSeo";
 import styles from "./OurTrees.module.css";
 
 const OurTrees = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   const images = [
-    "assets/images/selvbetjening.png",
-    "assets/images/juletrær-solnedgang.jpg",
-    "assets/images/kundebilde-1.jpg",
-    "assets/images/juletre-sommer.jpg",
-    "assets/images/kundebilde-2.jpg",
-    "assets/images/selvbetjening-juletre.png",
+    {
+      src: "/assets/images/selvbetjening.png",
+      alt: "Selvbetjening av juletre på Eidsvoll Verk",
+    },
+    {
+      src: "/assets/images/juletrær-solnedgang.jpg",
+      alt: "Juletreskog i solnedgang i Feiring",
+    },
+    {
+      src: "/assets/images/kundebilde-1.jpg",
+      alt: "Fornøyd kunde med pyntet juletre fra Flesvik Juletre",
+    },
+    {
+      src: "assets/images/juletre-sommer.jpg",
+      alt: "Juletreskog på sommeren i Feiring",
+    },
+    {
+      src: "assets/images/kundebilde-2.jpg",
+      alt: "Fornøyd kunde med pyntet juletre fra Flesvik Juletre",
+    },
+    {
+      src: "assets/images/selvbetjening-juletre.png",
+      alt: "Selvbetjening av juletre på Haakens gård på Eidsvoll Verk",
+    },
   ];
+
+  useSeo({
+    title: "Våre juletrær | Flesvik Juletre",
+    description:
+      "Se våre vakre juletrær – Norsk gran og Fjelledelgran – dyrket i Feiring ved Mjøsa. Lær også hvordan du best steller juletreet for lengst mulig holdbarhet.",
+  });
 
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
@@ -89,7 +114,7 @@ const OurTrees = () => {
             </p>
             <img
               src="/assets/images/norsk-gran.avif"
-              alt="norsk gran"
+              alt="Norsk gran – klassisk juletre med frisk duft og naturlig uttrykk"
               className={styles.treeImage}
             />
           </div>
@@ -105,7 +130,7 @@ const OurTrees = () => {
             </p>
             <img
               src="/assets/images/fjelledelgran.jpeg"
-              alt="fjelledelgran"
+              alt="Fjelledelgran – fyldig juletre med myke nåler og elegant form"
               className={styles.treeImage}
             />
           </div>
@@ -132,7 +157,10 @@ const OurTrees = () => {
             </ol>
           </div>
           <div className={styles.imageContainer}>
-            <img src="/assets/images/christmas-tree.jpeg" alt="juletre" />
+            <img
+              src="/assets/images/christmas-tree.jpeg"
+              alt="Juletre pyntet og klart til jul i norsk stue"
+            />
           </div>
         </section>
       </main>

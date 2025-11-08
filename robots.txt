@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /private/
+Allow: /
+
+Sitemap: https://flesvikjuletre.no/sitemap.xml
