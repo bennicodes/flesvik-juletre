@@ -41,7 +41,7 @@ main {
   font-family: var(--main-font);
 }
 
-.formDescription h2 {
+.formDescription h1 {
   width: 125px;
   color: var(--secondary-color);
   border-bottom: 4px solid var(--secondary-color);

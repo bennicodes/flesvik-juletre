@@ -1,11 +1,20 @@
-import ContactForm from "../../components/ContactForm/ContactForm";
-import Footer from "../../components/Footer/Footer";
-import Navbar from "../../components/Navbar/Navbar";
-import useScrollToTop from "../../hooks/useScrollToTop";
+import ContactForm from "../../components/ContactForm/ContactForm.jsx";
+import Footer from "../../components/Footer/Footer.jsx";
+import Navbar from "../../components/Navbar/Navbar.jsx";
+import useScrollToTop from "../../hooks/useScrollToTop.js";
+import useSeo from "../../hooks/useSeo.js";
+
 import styles from "./Order.module.css";
 
 const Order = () => {
   useScrollToTop(); // Auto scroll to top
+
+  useSeo({
+    title: "Bestill juletre | Flesvik Juletre",
+    description:
+      "Bestill juletre fra Flesvik Juletre – velg type, høyde og form. Trygg betaling med Vipps og levering i Eidsvoll-området.",
+  });
+
   return (
     <div className={styles.container}>
       <header>
@@ -15,7 +24,7 @@ const Order = () => {
         <div className={styles.hero}></div>
         <section className={styles.formSection}>
           <div className={styles.formDescription}>
-            <h2>Bestilling</h2>
+            <h1>Bestilling</h1>
             <div className={styles.descriptionParagraphs}>
               <p>
                 Fyll ut skjemaet under for å bestille juletre. Huk av for ønsket

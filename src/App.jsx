@@ -1,14 +1,20 @@
 import { useNavigate } from "react-router-dom";
 import styles from "./App.module.css";
-import Button from "./components/Button/Button";
-import Carousel from "./components/Carousel/Carousel";
-import Footer from "./components/Footer/Footer";
-import Navbar from "./components/Navbar/Navbar";
-import useScrollToTop from "./hooks/useScrollToTop";
+import Button from "./components/Button/Button.jsx";
+import Footer from "./components/Footer/Footer.jsx";
+import Navbar from "./components/Navbar/Navbar.jsx";
+import useScrollToTop from "./hooks/useScrollToTop.js";
+import useSeo from "./hooks/useSeo.js";
 
 function App() {
   const navigate = useNavigate();
   useScrollToTop(); // Auto scroll to top
+
+  useSeo({
+    title: "Flesvik Juletre – Ekte juletrær fra Feiring og Eidsvoll",
+    description:
+      "Opplev ekte julestemning hos Flesvik Juletre – selvhogst i Feiring, selvbetjening på Eidsvoll Verk, og hjemlevering",
+  });
 
   return (
     <div className={styles.rootContainer}>
@@ -28,6 +34,7 @@ function App() {
             preload="auto"
             className={styles.heroVideo}
             id="heroVideo"
+            aria-label="Snøanimasjon bakgrunnsvideo"
           ></video>
           <div className={styles.heroOverlay}>
             <h1 className={styles.heroHeading}>Flesvik Juletre</h1>
@@ -79,7 +86,7 @@ function App() {
             <div className={styles.imageContainer}>
               <img
                 src="/assets/images/bålpanne.jpg"
-                alt="bålpanne"
+                alt="Bålpanne tent ved Flesvik Gård"
                 className={styles.descriptionImage}
               />
             </div>
@@ -91,7 +98,7 @@ function App() {
             <div className={styles.imageContainer}>
               <img
                 src="/assets/images/selvbetjening.png"
-                alt="juletre"
+                alt="Selvbetjeningsområde for juletresalg på Haakens gård, Eidsvoll Verk"
                 className={styles.descriptionImage}
               />
             </div>

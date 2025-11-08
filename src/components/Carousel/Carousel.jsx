@@ -24,7 +24,7 @@ const Carousel = ({ images = [], autoPlay = true, interval = 5000 }) => {
       role="region"
       aria-roledescription="carousel"
     >
-      {images.map((src, i) => (
+      {images.map((image, i) => (
         <div
           key={i}
           className={`${styles.slideWrap} ${
@@ -32,7 +32,12 @@ const Carousel = ({ images = [], autoPlay = true, interval = 5000 }) => {
           }`}
           aria-hidden={i === currentIndex ? "false" : "true"}
         >
-          <img src={src} alt={`Slide ${i + 1}`} className={styles.slideImg} />
+          <img
+            src={image.src}
+            alt={image.alt || `Bilde ${i + 1} fra Flesvik Juletre`}
+            className={styles.slideImg}
+            loading="lazy"
+          />
         </div>
       ))}
 
