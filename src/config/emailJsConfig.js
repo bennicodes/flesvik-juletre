@@ -3,9 +3,12 @@ export const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 export const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 export const EMAILJS_API_KEY = import.meta.env.VITE_EMAILJS_API_KEY;
 
+export const EMAILJS_AUTOREPLY_TEMPLATE_ID = import.meta.env
+  .VITE_EMAILJS_AUTOREPLY_TEMPLATE_ID;
+
 export const sendContactEmail = async (formData) => {
   try {
-    return emailjs.send(
+    await emailjs.send(
       EMAILJS_SERVICE_ID,
       EMAILJS_TEMPLATE_ID,
       {
@@ -19,6 +22,18 @@ export const sendContactEmail = async (formData) => {
         treeHeight: formData.treeHeight,
         message: formData.message,
         time: new Date().toLocaleString("no-NO"),
+      },
+      EMAILJS_API_KEY
+    );
+
+    // Send auto reply to costumer
+    await emailjs.send(
+      EMAILJS_SERVICE_ID,
+      EMAILJS_AUTOREPLY_TEMPLATE_ID,
+      {
+        name: formData.name,
+        email: formData.email,
+        treeType: formData.treeType,
       },
       EMAILJS_API_KEY
     );
