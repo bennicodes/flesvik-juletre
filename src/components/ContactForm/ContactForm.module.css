@@ -150,8 +150,11 @@
   gap: var(--spacing-medium);
 }
 
-.radioGroup {
+.radioGroupWrapper {
   flex: 33%;
+}
+
+.radioGroup {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-small);
@@ -181,13 +184,12 @@
   transform: scale(1.2);
 }
 
-.radioErrors {
+.radioGroupWrapper p {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  gap: var(--spacing-small);
-  margin: 0 auto;
+  padding: var(--spacing-small) 0;
 }
+
 /* ---------------------- */
 /* Tree height */
 /* ---------------------- */
@@ -297,11 +299,24 @@
 /* ---------------------- */
 /* Responsive */
 /* ---------------------- */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 825px) {
   .form {
     padding: var(--spacing-large) var(--spacing-medium);
   }
-  .radioGroups{
+  .radioGroups {
     flex-direction: column;
+    align-items: center;
+  }
+  .radioGroupWrapper {
+    width: 50%;
+  }
+  .radioGroupWrapper .radioLabel{
+    justify-content: start;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .radioGroupWrapper {
+    width: 100%;
   }
 }

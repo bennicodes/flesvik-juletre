@@ -60,8 +60,6 @@ const ContactForm = () => {
 
     try {
       setIsLoading(true);
-      console.log(updatedFormData);
-
       await sendContactEmail(updatedFormData);
       setErrorMessage("");
       setSuccessMessage(
@@ -72,6 +70,7 @@ const ContactForm = () => {
         name: "",
         email: "",
         phone: "",
+        address: "",
         treeType: "",
         treeForm: "",
         branchDensity: "",
@@ -210,96 +209,100 @@ const ContactForm = () => {
         {/* -------------------- Radio Groups -------------------- */}
         {/* Tree Type */}
         <div className={`${styles.inputGroup} ${styles.radioGroups}`}>
-          <div className={styles.radioGroup}>
-            <p className={styles.radioLabel}>Velg type juletre:</p>
-            <label htmlFor="fjelledelgran" className={styles.radioOption}>
-              <input
-                type="radio"
-                id="fjelledelgran"
-                name="treeType"
-                value="Fjelledelgran"
-                checked={formData.treeType === "Fjelledelgran"}
-                onChange={handleChange}
-              />
-              Fjelledelgran
-            </label>
-            <label htmlFor="norsk-gran" className={styles.radioOption}>
-              <input
-                type="radio"
-                id="norsk-gran"
-                name="treeType"
-                value="Norsk gran"
-                checked={formData.treeType === "Norsk gran"}
-                onChange={handleChange}
-              />
-              Norsk gran
-            </label>
+          <div className={styles.radioGroupWrapper}>
+            <div className={styles.radioGroup}>
+              <p className={styles.radioLabel}>Velg type juletre:</p>
+              <label htmlFor="fjelledelgran" className={styles.radioOption}>
+                <input
+                  type="radio"
+                  id="fjelledelgran"
+                  name="treeType"
+                  value="Fjelledelgran"
+                  checked={formData.treeType === "Fjelledelgran"}
+                  onChange={handleChange}
+                />
+                Fjelledelgran
+              </label>
+              <label htmlFor="norsk-gran" className={styles.radioOption}>
+                <input
+                  type="radio"
+                  id="norsk-gran"
+                  name="treeType"
+                  value="Norsk gran"
+                  checked={formData.treeType === "Norsk gran"}
+                  onChange={handleChange}
+                />
+                Norsk gran
+              </label>
+            </div>
+            {errors.treeType && (
+              <p className={styles.errorMessage}>{errors.treeType}</p>
+            )}
           </div>
 
           {/* Tree Form */}
-          <div className={styles.radioGroup}>
-            <p className={styles.radioLabel}>Velg form:</p>
-            <label htmlFor="narrow" className={styles.radioOption}>
-              <input
-                type="radio"
-                id="narrow"
-                name="treeForm"
-                value="Smalt tre"
-                checked={formData.treeForm === "Smalt tre"}
-                onChange={handleChange}
-              />
-              Smalt tre
-            </label>
-            <label htmlFor="wide" className={styles.radioOption}>
-              <input
-                type="radio"
-                id="wide"
-                name="treeForm"
-                value="Bredt tre"
-                checked={formData.treeForm === "Bredt tre"}
-                onChange={handleChange}
-              />
-              Bredt tre
-            </label>
+          <div className={styles.radioGroupWrapper}>
+            <div className={styles.radioGroup}>
+              <p className={styles.radioLabel}>Velg form:</p>
+              <label htmlFor="narrow" className={styles.radioOption}>
+                <input
+                  type="radio"
+                  id="narrow"
+                  name="treeForm"
+                  value="Smalt tre"
+                  checked={formData.treeForm === "Smalt tre"}
+                  onChange={handleChange}
+                />
+                Smalt tre
+              </label>
+              <label htmlFor="wide" className={styles.radioOption}>
+                <input
+                  type="radio"
+                  id="wide"
+                  name="treeForm"
+                  value="Bredt tre"
+                  checked={formData.treeForm === "Bredt tre"}
+                  onChange={handleChange}
+                />
+                Bredt tre
+              </label>
+            </div>
+            {errors.treeForm && (
+              <p className={styles.errorMessage}>{errors.treeForm}</p>
+            )}
           </div>
 
           {/* Branch Density */}
-          <div className={styles.radioGroup}>
-            <p className={styles.radioLabel}>Velg tetthet på kvistene:</p>
-            <label htmlFor="thick" className={styles.radioOption}>
-              <input
-                type="radio"
-                id="thick"
-                name="branchDensity"
-                value="Tette kvister"
-                checked={formData.branchDensity === "Tette kvister"}
-                onChange={handleChange}
-              />
-              Tett med kvister
-            </label>
-            <label htmlFor="open" className={styles.radioOption}>
-              <input
-                type="radio"
-                id="open"
-                name="branchDensity"
-                value="Åpent mellom kvistene"
-                checked={formData.branchDensity === "Åpent mellom kvistene"}
-                onChange={handleChange}
-              />
-              Åpent mellom kvistene
-            </label>
+          <div className={styles.radioGroupWrapper}>
+            <div className={styles.radioGroup}>
+              <p className={styles.radioLabel}>Velg tetthet på kvistene:</p>
+              <label htmlFor="thick" className={styles.radioOption}>
+                <input
+                  type="radio"
+                  id="thick"
+                  name="branchDensity"
+                  value="Tette kvister"
+                  checked={formData.branchDensity === "Tette kvister"}
+                  onChange={handleChange}
+                />
+                Tett med kvister
+              </label>
+              <label htmlFor="open" className={styles.radioOption}>
+                <input
+                  type="radio"
+                  id="open"
+                  name="branchDensity"
+                  value="Åpent mellom kvistene"
+                  checked={formData.branchDensity === "Åpent mellom kvistene"}
+                  onChange={handleChange}
+                />
+                Åpent mellom kvistene
+              </label>
+            </div>
+            {errors.branchDensity && (
+              <p className={styles.errorMessage}>{errors.branchDensity}</p>
+            )}
           </div>
-        </div>
-        <div className={styles.radioErrors}>
-          {errors.treeType && (
-            <p className={styles.errorMessage}>{errors.treeType}</p>
-          )}
-          {errors.treeForm && (
-            <p className={styles.errorMessage}>{errors.treeForm}</p>
-          )}
-          {errors.branchDensity && (
-            <p className={styles.errorMessage}>{errors.branchDensity}</p>
-          )}
         </div>
 
         {/* -------------------- */}

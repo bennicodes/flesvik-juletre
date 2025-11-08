@@ -12,6 +12,7 @@ export const sendContactEmail = async (formData) => {
         name: formData.name,
         email: formData.email,
         phone: formData.phone,
+        address: formData.address,
         treeType: formData.treeType,
         treeForm: formData.treeForm,
         branchDensity: formData.branchDensity,
@@ -21,8 +22,7 @@ export const sendContactEmail = async (formData) => {
       },
       EMAILJS_API_KEY
     );
-  } catch (error) {
-    console.error("Error sending email:", error);
+  } catch {
     throw new Error("Failed to send email. Please try again later.");
   }
 };
