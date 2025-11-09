@@ -132,6 +132,7 @@ main {
   flex-direction: column;
   justify-content: center;
   gap: var(--spacing-medium);
+  padding-left: var(--spacing-large);
 }
 
 .treeList li {
@@ -158,8 +159,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-basis: 50%;
-  padding: var(--spacing-medium);
+  /* flex-basis: 50%; */
 }
 
 .imageContainer img {
