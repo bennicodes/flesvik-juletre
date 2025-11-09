@@ -25,13 +25,6 @@
   font-size: var(--large-font);
 }
 
-/* Carousel ---------- */
-.carouselWrap {
-  /* background-color: var(--background-color); */
-  /* max-width: 500px; */
-  /* margin: 0 auto; */
-}
-
 /* Hero Buttons --------------- */
 .heroButtons {
   width: 100%;
