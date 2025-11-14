@@ -13,7 +13,7 @@ function App() {
   useSeo({
     title: "Flesvik Juletre – Ekte juletrær fra Feiring og Eidsvoll",
     description:
-      "Opplev ekte julestemning hos Flesvik Juletre – selvhogst i Feiring, selvbetjening på Eidsvoll Verk, og hjemlevering",
+      "Opplev ekte julestemning hos Flesvik Juletre – selvhogst i Feiring, selvbetjening på Eidsvoll Verk og hjemlevering av vakre, norske juletrær.",
   });
 
   return (
@@ -25,20 +25,8 @@ function App() {
 
         {/* HERO SECTION */}
         <section className={styles.heroSection}>
-          <video
-            src="/assets/videos/snow-animation(shortened).mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-            className={styles.heroVideo}
-            id="heroVideo"
-            aria-label="Snøanimasjon bakgrunnsvideo"
-          ></video>
           <div className={styles.heroOverlay}>
             <h1 className={styles.heroHeading}>Flesvik Juletre</h1>
-
             <h3 className={styles.introHeading}>
               Finn ditt perfekte juletre – selvhogst i Feiring, selvbetjening på
               Eidsvoll Verk, eller få det levert rett hjem i ukene 49–51.

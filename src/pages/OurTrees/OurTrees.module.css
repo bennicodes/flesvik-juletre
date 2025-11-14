@@ -28,7 +28,7 @@
 /* Hero Buttons --------------- */
 .heroButtons {
   width: 100%;
-  display: flex; /* align-items: center; */
+  display: flex;
   justify-content: center;
   gap: var(--spacing-large);
   margin-top: var(--spacing-large);

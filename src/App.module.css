@@ -30,12 +30,16 @@ main {
 .heroSection {
   position: relative;
   color: var(--text-color);
-  min-height: 100vh;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden; /* ensures video doesn't spill out */
+
+  background-image: url("/assets/images/winter-cabin.JPEG");
+  background-position: bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .heroVideo {
@@ -51,18 +55,16 @@ main {
 
 .heroOverlay {
   position: relative;
-  z-index: 2; /* ensures it's always on top of video */
-  background-color: rgba(165, 15, 15, 0.7);
+  background-color: rgba(116, 156, 190, 0.5);
   backdrop-filter: blur(4px);
-  padding: var(--spacing-xl);
   border-radius: var(--border-radius-small);
   max-width: 700px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
   gap: var(--spacing-medium);
   text-align: center;
-  margin: 150px var(--spacing-large);
+  margin: 0 var(--spacing-large);
   box-shadow: 4px 0 10px rgba(0, 0, 0, 0.5);
   font-family: var(--main-font);
 }
@@ -74,13 +76,12 @@ main {
   font-weight: bold;
   margin-bottom: var(--spacing-medium);
   text-align: center;
-  text-decoration: underline;
 }
 
 .introHeading {
   color: var(--secondary-text-color);
   font-family: var(--main-font);
-  font-size: bold;
+  font-weight: bold;
   margin: 0 var(--spacing-large) var(--spacing-large) var(--spacing-large);
   line-height: 1.4;
 }
@@ -93,21 +94,22 @@ main {
 
 /* -------------------- BUTTONS -------------------- */
 .buttonGroup .primaryButton {
-  min-width: 200px;
-  background-color: var(--secondary-text-color);
-  color: var(--secondary-color);
-  border: 2px solid var(--secondary-text-color);
+  min-width: 250px;
+  background-color: var(--secondary-color);
+  color: var(--secondary-text-color);
+  border: 1px solid var(--secondary-text-color);
   padding: var(--spacing-small) var(--spacing-large);
-  border-radius: var(--border-radius-large);
+  border-radius: var(--border-radius-small);
   font-family: var(--main-font);
   font-weight: bold;
   transition: 0.2s ease;
 }
 
 .buttonGroup .primaryButton:hover {
-  background-color: var(--secondary-color);
-  color: var(--secondary-text-color);
-  box-shadow: 0 0 16px var(--secondary-text-color);
+  background-color: var(--secondary-text-color);
+  color: var(--secondary-color);
+  box-shadow: 0 0 16px var(--secondary-color);
+  border: 1px solid var(--secondary-color);
   transform: scale(0.97);
   cursor: pointer;
 }
@@ -177,8 +179,8 @@ main {
 /* 📱 Mobile first (under 600px) */
 @media (max-width: 600px) {
   .heroSection {
-    min-height: 100vh;
-    padding-top: var(--spacing-large);
+    min-height: 75vh;
+    background-size: cover;
   }
 
   .heroVideo {
@@ -190,12 +192,10 @@ main {
     margin: var(--spacing-large) var(--spacing-small);
     padding: var(--spacing-large);
     max-width: 90%;
-    background-color: rgba(165, 15, 15, 0.8);
   }
 
   .heroHeading {
-    font-size: 2rem;
-    text-decoration: none;
+    font-size: var(--large-font);
   }
 
   .introHeading {
@@ -206,6 +206,9 @@ main {
   .buttonGroup {
     flex-direction: column;
     gap: var(--spacing-small);
+  }
+  .buttonGroup .primaryButton {
+    font-size: var(--base-font);
   }
 
   .description {
