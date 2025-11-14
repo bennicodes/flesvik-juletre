@@ -42,17 +42,6 @@ main {
   background-attachment: fixed;
 }
 
-.heroVideo {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  animation: fadeLoop 10s infinite;
-  z-index: 0; /* background layer */
-}
-
 .heroOverlay {
   position: relative;
   background-color: rgba(116, 156, 190, 0.5);
@@ -179,8 +168,9 @@ main {
 /* 📱 Mobile first (under 600px) */
 @media (max-width: 600px) {
   .heroSection {
-    min-height: 75vh;
-    background-size: cover;
+    min-height: 80vh;
+    background-attachment: scroll;
+    /* background-position: center; */
   }
 
   .heroVideo {
@@ -188,6 +178,7 @@ main {
   }
 
   .heroOverlay {
+    background-color: rgba(116, 156, 190, 0.2);
     position: relative;
     margin: var(--spacing-large) var(--spacing-small);
     padding: var(--spacing-large);
