@@ -63,7 +63,7 @@ const ContactForm = () => {
       await sendContactEmail(updatedFormData);
       setErrorMessage("");
       setSuccessMessage(
-        "Takk for bestillingen! Vi tar kontakt så fort som mulig."
+        "Takk for bestillingen! Du vil motta en bekreftelsesmail om kort tid."
       );
 
       setFormData({

@@ -34,13 +34,20 @@ const Order = () => {
               <p>
                 Når bestillingen er sendt, vil du motta bekreftelse på e-post.
                 Bestillingen er gyldig når betaling via Vipps{" "}
-                <strong>(725259)</strong> er mottatt.
+                <span className={styles.number}>
+                  <strong>(725259)</strong> er mottatt.
+                </span>
               </p>
               <br />
               <p>
-                Levering skjer i uke <strong>49, 50 og 51 </strong>
+                Levering skjer i uke{" "}
+                <span>
+                  <strong>49, 50 og 51 </strong>
+                </span>
                 til disse postnumrene:{" "}
-                <strong>2093, 2092, 2080, 2074, 2072, 2070.</strong>
+                <span>
+                  <strong>2093, 2092, 2080, 2074, 2072, 2070.</strong>
+                </span>
               </p>
               <p>Ta kontakt for eventuell levering utenom disse postnumrene.</p>
             </div>
