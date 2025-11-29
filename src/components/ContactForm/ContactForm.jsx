@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { sendContactEmail } from "../../config/emailJsConfig";
 import useContactFormValidation from "../../hooks/useFormValidation";
+import useTreePrice from "../../hooks/useTreePrice";
 import Button from "../Button/Button";
 import Spinner from "../Spinner/Spinner";
 import styles from "./ContactForm.module.css";
@@ -24,15 +25,28 @@ const ContactForm = () => {
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
-  // handle validation through costume hook
+  // Handle validation through costume hook
   const { errors, validate, validateField } = useContactFormValidation();
+
+  // Calculate total price
+  const { basePrice, heightExtra, totalPrice } = useTreePrice(formData);
+  const shippingFee = 100;
+  const finalTotal = totalPrice + shippingFee;
 
   // Track input value
   const handleChange = (e) => {
     const { name, value } = e.target;
+
+    let newValue = value;
+
+    if (name === "treeHeight") {
+      const parsed = parseFloat(value.replace(",", "."));
+      newValue = isNaN(parsed) ? "" : parsed;
+    }
+
     setFormData((prev) => ({
       ...prev,
-      [name]: value,
+      [name]: newValue,
     }));
 
     if (name === "message") {
@@ -58,11 +72,17 @@ const ContactForm = () => {
     // Set default height if not filled
     const updatedFormData = {
       ...formData,
-      treeHeight: formData.treeHeight ? formData.treeHeight : 2.3,
+      treeHeight: formData.treeHeight ? formData.treeHeight.toString() : "2.3",
+      finalTotal: (totalPrice + shippingFee).toString(),
+      message: formData.message || "-",
     };
 
     try {
       setIsLoading(true);
+      console.log(Object.keys(updatedFormData));
+      console.log(JSON.stringify(updatedFormData, null, 2));
+      console.log(updatedFormData);
+
       await sendContactEmail(updatedFormData);
       setErrorMessage("");
       setSuccessMessage(
@@ -81,7 +101,10 @@ const ContactForm = () => {
         message: "",
       });
       setCharacterCount(0);
-    } catch {
+    } catch (err) {
+      console.error("EmailJS full error:", err);
+      if (err.text) console.error("Error text:", err.text);
+      
       setErrorMessage("Beklager, noe gikk galt. Vennligst prøv igjen senere.");
     } finally {
       setIsLoading(false);
@@ -204,7 +227,7 @@ const ContactForm = () => {
                   type="radio"
                   id="norsk-gran"
                   name="treeType"
-                  value="Norsk gran"
+                  value={"Norsk gran"}
                   checked={formData.treeType === "Norsk gran"}
                   onChange={handleChange}
                 />
@@ -354,9 +377,23 @@ const ContactForm = () => {
 
         {/* -------------------- */}
         <div className={styles.actionContainer}>
-          {/* <p className={styles.totalPrice}>Total: {total} kr</p> */}
+          <div className={styles.pricingContainer}>
+            <p className={styles.priceLine}>
+              Trepris: <span>{basePrice} kr</span>
+            </p>
+
+            <p className={styles.priceLine}>
+              Høyde-tillegg: {heightExtra || 0} kr
+            </p>
+
+            <p className={styles.priceLine}>Levering: {shippingFee} kr</p>
+
+            <p className={styles.totalPrice}>Total: {finalTotal} kr</p>
+          </div>
+
           <p className={styles.successMessage}>{successMessage}</p>
           <p className={styles.errorMessage}>{errorMessage}</p>
+
           <Button classname={styles.submitButton} type="submit">
             {isLoading ? (
               <Spinner spinnerClassName={styles.loadingCircle} />

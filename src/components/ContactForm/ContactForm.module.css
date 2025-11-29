@@ -302,7 +302,7 @@
 .loadingCircle {
   width: 32px;
   height: 32px;
-  border-top: 0.5rem solid rgba(31, 41, 55, 0.1);
+  border-top: 0.5rem solid var(--accent-gold);
 }
 
 /* ---------------------- */
@@ -324,6 +324,15 @@
 /* Pricing */
 /* --------------- */
 
+.pricingContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-small);
+}
+.pricingContainer p {
+  font-family: "Times New Roman", Times, serif;
+}
+
 .price {
   padding-right: var(--spacing-medium);
   flex-grow: 1;
@@ -331,10 +340,20 @@
 }
 
 .totalPrice {
+  min-width: 200px;
   padding: var(--spacing-small) 0;
   font-family: "Times New Roman", Times, serif;
   font-weight: 500;
   font-size: var(--medium-font);
+  text-align: center;
+  border-top: 1px solid var(--background-color);
+}
+
+.shipping {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-medium);
+  font-size: var(--small-font);
 }
 /* ---------------------- */
 /* Responsive */
@@ -370,5 +389,9 @@
 
   .heightList li p span {
     padding-left: var(--spacing-medium);
+  }
+
+  .pricingContainer p {
+    width: 100%;
   }
 }
