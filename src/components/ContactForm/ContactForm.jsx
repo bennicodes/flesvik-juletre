@@ -72,8 +72,7 @@ const ContactForm = () => {
     // Set default height if not filled
     const updatedFormData = {
       ...formData,
-      treeHeight: formData.treeHeight ? formData.treeHeight.toString() : "2.3",
-      finalTotal: (totalPrice + shippingFee).toString(),
+      treeHeight: formData.treeHeight || 2.3,
       message: formData.message || "-",
     };
 
@@ -98,13 +97,14 @@ const ContactForm = () => {
         treeForm: "",
         branchDensity: "",
         treeHeight: "",
+        finalTotal: 0,
         message: "",
       });
       setCharacterCount(0);
     } catch (err) {
       console.error("EmailJS full error:", err);
       if (err.text) console.error("Error text:", err.text);
-      
+
       setErrorMessage("Beklager, noe gikk galt. Vennligst prøv igjen senere.");
     } finally {
       setIsLoading(false);

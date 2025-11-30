@@ -6,7 +6,7 @@ export const EMAILJS_API_KEY = import.meta.env.VITE_EMAILJS_API_KEY;
 export const EMAILJS_AUTOREPLY_TEMPLATE_ID = import.meta.env
   .VITE_EMAILJS_AUTOREPLY_TEMPLATE_ID;
 
-export const sendContactEmail = async (formData, finalTotal) => {
+export const sendContactEmail = async (formData) => {
   try {
     // Send mail to business
     await emailjs.send(
@@ -27,21 +27,20 @@ export const sendContactEmail = async (formData, finalTotal) => {
       EMAILJS_API_KEY
     );
 
-    // Send auto reply to costumer
-    await emailjs.send(
-      EMAILJS_SERVICE_ID,
-      EMAILJS_AUTOREPLY_TEMPLATE_ID,
-      {
-        name: formData.name,
-        email: formData.email,
-        treeType: formData.treeType,
-        treeHeight: formData.treeHeight,
-        treeForm: formData.treeForm,
-        branchDensity: formData.branchDensity,
-        finalTotal: formData.finalTotal,
-      },
-      EMAILJS_API_KEY
-    );
+    // // Send auto reply to costumer
+    // await emailjs.send(
+    //   EMAILJS_SERVICE_ID,
+    //   EMAILJS_AUTOREPLY_TEMPLATE_ID,
+    //   {
+    //     name: formData.name,
+    //     email: formData.email,
+    //     treeType: formData.treeType,
+    //     treeHeight: formData.treeHeight,
+    //     treeForm: formData.treeForm,
+    //     branchDensity: formData.branchDensity,
+    //   },
+    //   EMAILJS_API_KEY
+    // );
   } catch {
     throw new Error("Failed to send email. Please try again later.");
   }
