@@ -33,6 +33,17 @@ export default function useContactFormValidation() {
     }
     // ------------------
 
+    if (!formData.postalNumber) {
+      newErrors.postalNumber = "Vennligst oppgi postnummer";
+    } else if (!/^\d{4}$/.test(formData.postalNumber.trim())) {
+      newErrors.postalNumber = "Postnummer må bestå av 4 sifre";
+    }
+
+    // ------------------
+    if (!formData.postalCity) {
+      newErrors.postalCity = "Vennligst oppgi by/sted";
+    }
+
     if (!formData.treeType) {
       newErrors.treeType = "Vennligst velg tretype";
     }
@@ -76,6 +87,19 @@ export default function useContactFormValidation() {
     if (name === "address") {
       if (!value.trim()) message = "Vennligst oppgi leveringsadresse";
     }
+
+    if (name === "postalNumber") {
+      if (!value.trim()) {
+        message = "Vennligst oppgi postnummer";
+      } else if (!/^\d{4}$/.test(value.trim())) {
+        message = "Postnummer må bestå av 4 sifre";
+      }
+    }
+
+    if (name === "postalCity") {
+      if (!value.trim()) message = "Vennligst oppgi by/sted";
+    }
+
     // Radio buttons
     if (name === "treeType" && !value) message = "Vennligst velg tretype";
     if (name === "treeForm" && !value) message = "Vennligst velg form på treet";

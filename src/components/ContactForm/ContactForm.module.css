@@ -76,6 +76,40 @@
   width: 100%;
 }
 
+/* Postal */
+.postal {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-xl);
+}
+
+.postalContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-small);
+  flex-grow: 1;
+}
+
+.postNumberGroup {
+  flex-basis: 25%;
+}
+
+.postalNumber input {
+  -webkit-appearance: none; /* Chrome, Safari, Edge */
+  -moz-appearance: textfield; /* Firefox */
+  appearance: none;
+  margin: 0;
+}
+/* Remove arrows for Chrome/Edge/Safari on hover and focus */
+.postalNumber input::-webkit-outer-spin-button,
+.postalNumber input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* --------------------- */
+
 .inputWrapper input,
 .inputWrapper textarea {
   width: 100%;
@@ -83,7 +117,7 @@
   border: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.5); /* muted gray line */
   color: var(--secondary-text-color);
-  padding: var(--spacing-small) 0;
+  padding: var(--spacing-small) 0 var(--spacing-small) 4px;
   font-size: var(--base-font);
   font-family: var(--main-font);
   transition: border-color 0.2s ease, color 0.2s ease;
@@ -362,13 +396,20 @@
   .form {
     padding: var(--spacing-large) var(--spacing-medium);
   }
+
+  .postNumberGroup {
+    flex-basis: 33%;
+  }
+
   .radioGroups {
     flex-direction: column;
     align-items: center;
   }
+
   .radioGroupWrapper {
     width: 50%;
   }
+
   .radioGroupWrapper .radioLabel {
     justify-content: start;
   }
@@ -379,6 +420,11 @@
 }
 
 @media screen and (max-width: 600px) {
+  .postal {
+    gap: var(--spacing-large);
+    flex-direction: column;
+  }
+
   .radioGroupWrapper {
     width: 100%;
   }

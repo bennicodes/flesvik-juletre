@@ -17,6 +17,8 @@ export const sendContactEmail = async (formData) => {
         email: formData.email,
         phone: formData.phone,
         address: formData.address,
+        postalNumber: formData.postalNumber,
+        postalCity: formData.postalCity,
         treeType: formData.treeType,
         treeForm: formData.treeForm,
         branchDensity: formData.branchDensity,

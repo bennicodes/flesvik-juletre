@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 
-const TREE_PRICES = {
+export const TREE_PRICES = {
   Fjelledelgran: 600,
   "Norsk gran": 450,
 };
 
-const HEIGHT_SURCHARGE = {
+export const HEIGHT_SURCHARGE = {
   Fjelledelgran: { limit: 3, extra: 100 },
   "Norsk gran": { limit: 4, extra: 150 },
 };
