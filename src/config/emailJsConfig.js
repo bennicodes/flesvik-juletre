@@ -8,6 +8,7 @@ export const EMAILJS_AUTOREPLY_TEMPLATE_ID = import.meta.env
 
 export const sendContactEmail = async (formData) => {
   try {
+    // Send mail to business
     await emailjs.send(
       EMAILJS_SERVICE_ID,
       EMAILJS_TEMPLATE_ID,
@@ -16,6 +17,8 @@ export const sendContactEmail = async (formData) => {
         email: formData.email,
         phone: formData.phone,
         address: formData.address,
+        postalNumber: formData.postalNumber,
+        postalCity: formData.postalCity,
         treeType: formData.treeType,
         treeForm: formData.treeForm,
         branchDensity: formData.branchDensity,
@@ -34,6 +37,9 @@ export const sendContactEmail = async (formData) => {
         name: formData.name,
         email: formData.email,
         treeType: formData.treeType,
+        treeHeight: formData.treeHeight,
+        treeForm: formData.treeForm,
+        branchDensity: formData.branchDensity,
       },
       EMAILJS_API_KEY
     );

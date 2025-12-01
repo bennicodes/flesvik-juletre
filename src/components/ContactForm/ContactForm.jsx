@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { sendContactEmail } from "../../config/emailJsConfig";
 import useContactFormValidation from "../../hooks/useFormValidation";
+import useTreePrice, {
+  HEIGHT_SURCHARGE,
+  TREE_PRICES,
+} from "../../hooks/useTreePrice";
 import Button from "../Button/Button";
 import Spinner from "../Spinner/Spinner";
 import styles from "./ContactForm.module.css";
@@ -11,6 +15,8 @@ const ContactForm = () => {
     email: "",
     phone: "",
     address: "",
+    postalNumber: "",
+    postalCity: "",
     treeType: "",
     treeForm: "",
     branchDensity: "",
@@ -24,28 +30,39 @@ const ContactForm = () => {
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
-  // handle validation through costume hook
   const { errors, validate, validateField } = useContactFormValidation();
 
-  // Track input value
+  // Price calculation
+  const { basePrice, heightExtra, totalPrice } = useTreePrice(formData);
+  const shippingFee = basePrice ? 100 : 0;
+  const price = shippingFee + totalPrice;
+
+  // ---------------------
+
   const handleChange = (e) => {
     const { name, value } = e.target;
+    let newValue = value;
+
+    if (name === "postalNumber") {
+      newValue = value.replace(/\D/g, "").slice(0, 4);
+    }
+
     setFormData((prev) => ({
       ...prev,
-      [name]: value,
+      [name]: newValue,
     }));
 
     if (name === "message") {
-      setCharacterCount(value.length);
+      setCharacterCount(newValue.length);
     }
   };
 
-  // Verification on blur
   const handleBlur = (e) => {
     const { name, value } = e.target;
     if (submitted) validateField(name, value);
   };
 
+  // Submit logic
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSuccessMessage("");
@@ -66,7 +83,7 @@ const ContactForm = () => {
       await sendContactEmail(updatedFormData);
       setErrorMessage("");
       setSuccessMessage(
-        "Takk for bestillingen! Du vil motta en bekreftelsesmail om kort tid."
+        "Takk for bestillingen! Vi tar kontakt så fort som mulig."
       );
 
       setFormData({
@@ -74,6 +91,8 @@ const ContactForm = () => {
         email: "",
         phone: "",
         address: "",
+        postalNumber: "",
+        postalCity: "",
         treeType: "",
         treeForm: "",
         branchDensity: "",
@@ -162,7 +181,7 @@ const ContactForm = () => {
         <div className={styles.inputGroup}>
           <div
             className={`${styles.inputWrapper} ${
-              formData.phone ? styles.filled : ""
+              formData.address ? styles.filled : ""
             }`}
           >
             <label htmlFor="address">Leveringsadresse</label>
@@ -178,6 +197,52 @@ const ContactForm = () => {
           {errors.address && (
             <p className={styles.errorMessage}>{errors.address}</p>
           )}
+        </div>
+        {/* -------------------- */}
+
+        {/* -------------------- */}
+        <div className={`${styles.inputGroup} ${styles.postal}`}>
+          <div className={`${styles.postalContainer} ${styles.postNumberGroup}`}>
+            <div
+              className={`${styles.inputWrapper} ${styles.postalNumber} ${
+                formData.postalNumber ? styles.filled : ""
+              }`}
+            >
+              <label htmlFor="postalNumber">Postnummer</label>
+              <input
+                type="number"
+                name="postalNumber"
+                id="postalNumber"
+                onChange={handleChange}
+                value={formData.postalNumber}
+                onBlur={handleBlur}
+              />
+            </div>
+            {errors.postalNumber && (
+              <p className={styles.errorMessage}>{errors.postalNumber}</p>
+            )}
+          </div>
+          <div className={styles.postalContainer}>
+            <div
+              className={`${styles.inputWrapper} ${styles.postalCity} ${
+                formData.postalCity ? styles.filled : ""
+              }`}
+            >
+              <label htmlFor="postalCity">By/Sted</label>
+              <input
+                type="text"
+                name="postalCity"
+                id="postalCity"
+                onChange={handleChange}
+                value={formData.postalCity}
+                onBlur={handleBlur}
+                min="1"
+              />
+            </div>
+            {errors.postalCity && (
+              <p className={styles.errorMessage}>{errors.postalCity}</p>
+            )}
+          </div>
         </div>
         {/* -------------------- */}
 
@@ -197,19 +262,23 @@ const ContactForm = () => {
                   onChange={handleChange}
                 />
                 Fjelledelgran
-                <span className={styles.price}>({600} kr)</span>
+                <span className={styles.price}>
+                  ({TREE_PRICES["Fjelledelgran"]} kr)
+                </span>
               </label>
               <label htmlFor="norsk-gran" className={styles.radioOption}>
                 <input
                   type="radio"
                   id="norsk-gran"
                   name="treeType"
-                  value="Norsk gran"
+                  value={"Norsk gran"}
                   checked={formData.treeType === "Norsk gran"}
                   onChange={handleChange}
                 />
                 Norsk gran
-                <span className={styles.price}>({450} kr)</span>
+                <span className={styles.price}>
+                  ({TREE_PRICES["Norsk gran"]} kr)
+                </span>
               </label>
             </div>
             {errors.treeType && (
@@ -307,12 +376,14 @@ const ContactForm = () => {
             <ul className={styles.heightList}>
               <li>
                 <p>
-                  Norsk gran over 4m <span>(+ {150} kr)</span>
+                  Fjelledelgran over {HEIGHT_SURCHARGE["Fjelledelgran"].limit}m{" "}
+                  <span>(+ {HEIGHT_SURCHARGE["Fjelledelgran"].extra} kr)</span>
                 </p>
               </li>
               <li>
                 <p>
-                  Fjelledelgran over 3m <span>(+ {100} kr)</span>
+                  Norsk gran over {HEIGHT_SURCHARGE["Norsk gran"].limit} m{" "}
+                  <span>(+ {HEIGHT_SURCHARGE["Norsk gran"].extra} kr)</span>
                 </p>
               </li>
             </ul>
@@ -354,9 +425,23 @@ const ContactForm = () => {
 
         {/* -------------------- */}
         <div className={styles.actionContainer}>
-          {/* <p className={styles.totalPrice}>Total: {total} kr</p> */}
+          <div className={styles.pricingContainer}>
+            <p className={styles.priceLine}>
+              Trepris: <span>{basePrice} kr</span>
+            </p>
+
+            <p className={styles.priceLine}>
+              Høyde-tillegg: {heightExtra || 0} kr
+            </p>
+
+            <p className={styles.priceLine}>Levering: {shippingFee} kr</p>
+
+            <p className={styles.totalPrice}>Total: {price} kr</p>
+          </div>
+
           <p className={styles.successMessage}>{successMessage}</p>
           <p className={styles.errorMessage}>{errorMessage}</p>
+
           <Button classname={styles.submitButton} type="submit">
             {isLoading ? (
               <Spinner spinnerClassName={styles.loadingCircle} />
