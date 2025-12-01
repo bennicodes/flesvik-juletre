@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { sendContactEmail } from "../../config/emailJsConfig";
 import useContactFormValidation from "../../hooks/useFormValidation";
-import useTreePrice from "../../hooks/useTreePrice";
 import Button from "../Button/Button";
 import Spinner from "../Spinner/Spinner";
 import styles from "./ContactForm.module.css";
+import useTreePrice from "../../hooks/useTreePrice";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -25,28 +25,15 @@ const ContactForm = () => {
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
-  // Handle validation through costume hook
   const { errors, validate, validateField } = useContactFormValidation();
 
-  // Calculate total price
-  const { basePrice, heightExtra, totalPrice } = useTreePrice(formData);
-  const shippingFee = 100;
-  const finalTotal = totalPrice + shippingFee;
+  const { basePrice, heightExtra, totalPrice } = useTreePrice();
 
-  // Track input value
   const handleChange = (e) => {
     const { name, value } = e.target;
-
-    let newValue = value;
-
-    if (name === "treeHeight") {
-      const parsed = parseFloat(value.replace(",", "."));
-      newValue = isNaN(parsed) ? "" : parsed;
-    }
-
     setFormData((prev) => ({
       ...prev,
-      [name]: newValue,
+      [name]: value,
     }));
 
     if (name === "message") {
@@ -54,7 +41,6 @@ const ContactForm = () => {
     }
   };
 
-  // Verification on blur
   const handleBlur = (e) => {
     const { name, value } = e.target;
     if (submitted) validateField(name, value);
@@ -72,20 +58,15 @@ const ContactForm = () => {
     // Set default height if not filled
     const updatedFormData = {
       ...formData,
-      treeHeight: formData.treeHeight || 2.3,
-      message: formData.message || "-",
+      treeHeight: formData.treeHeight ? formData.treeHeight : 2.3,
     };
 
     try {
       setIsLoading(true);
-      console.log(Object.keys(updatedFormData));
-      console.log(JSON.stringify(updatedFormData, null, 2));
-      console.log(updatedFormData);
-
       await sendContactEmail(updatedFormData);
       setErrorMessage("");
       setSuccessMessage(
-        "Takk for bestillingen! Du vil motta en bekreftelsesmail om kort tid."
+        "Takk for bestillingen! Vi tar kontakt så fort som mulig."
       );
 
       setFormData({
@@ -97,14 +78,10 @@ const ContactForm = () => {
         treeForm: "",
         branchDensity: "",
         treeHeight: "",
-        finalTotal: 0,
         message: "",
       });
       setCharacterCount(0);
-    } catch (err) {
-      console.error("EmailJS full error:", err);
-      if (err.text) console.error("Error text:", err.text);
-
+    } catch {
       setErrorMessage("Beklager, noe gikk galt. Vennligst prøv igjen senere.");
     } finally {
       setIsLoading(false);
@@ -388,7 +365,7 @@ const ContactForm = () => {
 
             <p className={styles.priceLine}>Levering: {shippingFee} kr</p>
 
-            <p className={styles.totalPrice}>Total: {finalTotal} kr</p>
+            <p className={styles.totalPrice}>Total: {totalPrice} kr</p>
           </div>
 
           <p className={styles.successMessage}>{successMessage}</p>

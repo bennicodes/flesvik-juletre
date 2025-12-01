@@ -27,20 +27,20 @@ export const sendContactEmail = async (formData) => {
       EMAILJS_API_KEY
     );
 
-    // // Send auto reply to costumer
-    // await emailjs.send(
-    //   EMAILJS_SERVICE_ID,
-    //   EMAILJS_AUTOREPLY_TEMPLATE_ID,
-    //   {
-    //     name: formData.name,
-    //     email: formData.email,
-    //     treeType: formData.treeType,
-    //     treeHeight: formData.treeHeight,
-    //     treeForm: formData.treeForm,
-    //     branchDensity: formData.branchDensity,
-    //   },
-    //   EMAILJS_API_KEY
-    // );
+    // Send auto reply to costumer
+    await emailjs.send(
+      EMAILJS_SERVICE_ID,
+      EMAILJS_AUTOREPLY_TEMPLATE_ID,
+      {
+        name: formData.name,
+        email: formData.email,
+        treeType: formData.treeType,
+        treeHeight: formData.treeHeight,
+        treeForm: formData.treeForm,
+        branchDensity: formData.branchDensity,
+      },
+      EMAILJS_API_KEY
+    );
   } catch {
     throw new Error("Failed to send email. Please try again later.");
   }
