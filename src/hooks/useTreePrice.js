@@ -6,7 +6,7 @@ export const TREE_PRICES = {
 };
 
 export const HEIGHT_SURCHARGE = {
-  Fjelledelgran: { limit: 3, extra: 100 },
+  Fjelledelgran: { limit: 2.5, extra: 100 },
   "Norsk gran": { limit: 4, extra: 150 },
 };
 
